@@ -19,6 +19,7 @@ public class ButtonEditor : MonoBehaviour
 
     void OnValidate()
     {
+        if (_tmp is null) return;
         _tmp.text = buttonText;
         _tmp.fontSize = fontSize;
     }
