@@ -65,12 +65,12 @@ public class AnchorToolsEditor : EditorWindow
         AnchorsToCorners();
         anchorRectOld = anchorRect;
 
-        UnityEditor.EditorUtility.SetDirty(currentRectTransform.gameObject);
+        EditorUtility.SetDirty(currentRectTransform.gameObject);
     }
 
     static private void TryToGetRectTransform()
     {
-        currentRectTransform = UnityEditor.Selection.activeGameObject.GetComponent<RectTransform>();
+        currentRectTransform = Selection.activeGameObject.GetComponent<RectTransform>();
         parentRectTransform = currentRectTransform.parent.gameObject.GetComponent<RectTransform>();
 
     }

@@ -26,6 +26,7 @@ public class ButtonEditor : MonoBehaviour
 
     void SetTMPDefaults()
     {
+        if (_tmp is null) return;
         _tmp.fontStyle = FontStyles.Bold;
         _tmp.color = Color.black;
     }
