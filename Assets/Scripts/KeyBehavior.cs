@@ -41,6 +41,3 @@ public class KeyBehavior : MonoBehaviour
         _keyboardController.KeypressHandler(new KeyPressData(keyType, keyValue, command));
     }
 }
-
-
-

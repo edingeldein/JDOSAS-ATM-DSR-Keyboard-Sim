@@ -23,7 +23,7 @@ public class KeyBehaviorEditor : Editor
             if (keyBehavior.shiftable)
                 keyBehavior.valueShifted = EditorGUILayout.TextField("Shifted Value: ", keyBehavior.valueShifted);
         }
-        else
+        else if(keyBehavior.keyType == KeyType.Command)
         {
             keyBehavior.shiftable = false;
             keyBehavior.valueUnshifted = null;

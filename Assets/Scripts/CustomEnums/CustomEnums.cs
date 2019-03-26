@@ -12,11 +12,18 @@ namespace CustomEnums
 
     public enum Commands
     {
-        Space,
+        Backspace,
+        Clear,
+        Tab,
+        NewLine,
+        Enter,
         CursorUp,
         CursorDown,
         CursorLeft,
         CursorRight,
+        FP,
+        AM,
+        RTE,
         None
     }
 }
