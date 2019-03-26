@@ -12,8 +12,6 @@ public class ButtonEditor : MonoBehaviour
     void Start()
     {
         _tmp = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        if (_tmp == null)
-            Debug.Log("WTF");
         SetTMPDefaults();
     }
 
