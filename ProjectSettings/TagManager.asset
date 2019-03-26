@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - KeyboardController
+  - DisplayController
   layers:
   - Default
   - TransparentFX
