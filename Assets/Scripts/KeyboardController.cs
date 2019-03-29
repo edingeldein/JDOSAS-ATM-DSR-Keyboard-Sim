@@ -33,7 +33,10 @@ public class KeyboardController : MonoBehaviour
         else if (data.Command == Commands.Tab)
             _displayController.AddText("    ");
         else if (data.Command == Commands.NewLine)
+        {            
+            _displayController.SubmitText();
             _displayController.AddText("\n");
+        }            
         else if (data.Command == Commands.Backspace || data.Command == Commands.Clear)
             _displayController.RemoveText(data.Command);
         else

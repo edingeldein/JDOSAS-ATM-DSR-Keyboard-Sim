@@ -3,11 +3,14 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using CustomObjects;
+using CustomObjects.Actions;
 using CustomEnums;
 using System;
 
 public class DisplayController : MonoBehaviour
 {
+
+    public IActionType CurrentAction;
 
     TextMeshProUGUI textDisplay;
     TextMeshProUGUI verifyDisplay;
@@ -28,8 +31,7 @@ public class DisplayController : MonoBehaviour
         InitDisplays();
         
         verifier = new Verifier();
-        currentFlightPlan = verifier.GetFlightPlan();
-        verifyDisplay.text = currentFlightPlan;
+        currentFlightPlan = verifier.GetFlightPlan(); 
 
         textBuffers[0] = "";
         textBuffers[1] = "_";
@@ -80,6 +82,22 @@ public class DisplayController : MonoBehaviour
 
     }
 
+    public void SubmitText()
+    {
+        var success = verifier.CheckFlightPlan(textBuffers[0]);
+        if (success)
+        {
+            verifyDisplay.text = "SUCCESS!";
+            verifyDisplay.faceColor = new Color(88f, 237f, 83f);
+        }
+        else
+        {
+            verifyDisplay.text = "Failure!";
+            verifyDisplay.faceColor = new Color(237f, 108f, 83f);
+        }
+            
+    }
+
     public void Navigate(KeyPressData data)
     {
 
@@ -88,7 +106,6 @@ public class DisplayController : MonoBehaviour
     public void ExecuteCommand(Commands command)
     {
         var commandText = command.ToString();
-        Debug.Log(command);
         AddText($"{commandText} ");
     }
 
