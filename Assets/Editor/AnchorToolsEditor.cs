@@ -72,7 +72,6 @@ public class AnchorToolsEditor : EditorWindow
     {
         currentRectTransform = Selection.activeGameObject.GetComponent<RectTransform>();
         parentRectTransform = currentRectTransform.parent.gameObject.GetComponent<RectTransform>();
-
     }
 
     static private void CalculateCurrentXY()

@@ -9,43 +9,56 @@ using System;
 public class DisplayController : MonoBehaviour
 {
 
-    TextMeshProUGUI _textDisplay;
-    string _textToDisplay;
-    string[] _textBuffers = new string[2];
+    TextMeshProUGUI textDisplay;
+    TextMeshProUGUI verifyDisplay;
+    Verifier verifier;
+
+    string currentFlightPlan;
+    string textToDisplay;
+    string[] textBuffers = new string[2];
+
     int strPos = 0;
     int tick = 0;
     bool alive = true;
 
+    #region Lifecycles
+
     void Start()
     {
-        _textDisplay = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        InitDisplays();
+        
+        verifier = new Verifier();
+        currentFlightPlan = verifier.GetFlightPlan();
+        verifyDisplay.text = currentFlightPlan;
 
-        _textBuffers[0] = "";
-        _textBuffers[1] = "_";
-        _textToDisplay = _textBuffers[0];
+        textBuffers[0] = "";
+        textBuffers[1] = "_";
+        textToDisplay = textBuffers[0];
 
         var cursorCoroutine = Cursor(0.6f);
         StartCoroutine(cursorCoroutine);
     }
-
+    
     void Update()
     {
         if (NeedsUpdate())
-            _textToDisplay = _textBuffers[tick % 2];
-        _textDisplay.text = _textToDisplay;
+            textToDisplay = textBuffers[tick % 2];
+        textDisplay.text = textToDisplay;
     }
 
-    bool NeedsUpdate()
+    private void OnDestroy()
     {
-        var tbzClean = _textToDisplay.Equals(_textBuffers[0]);
-        var tboClean = _textToDisplay.Equals(_textBuffers[1]);
-        return !(tbzClean || tboClean);
+        alive = false;
     }
+
+    #endregion Lifecycles
+
+    #region Keyhandlers
 
     public void AddText(string text)
     {
-        _textBuffers[0] = _textBuffers[0].Insert(strPos, text);
-        _textBuffers[1] = _textBuffers[1].Insert(strPos, text);
+        textBuffers[0] = textBuffers[0].Insert(strPos, text);
+        textBuffers[1] = textBuffers[1].Insert(strPos, text);
         strPos += text.Length;
     }
 
@@ -54,14 +67,14 @@ public class DisplayController : MonoBehaviour
         if (command == Commands.Backspace)
         {
             if (strPos == 0) return;
-            _textBuffers[0] = _textBuffers[0].Remove(strPos-1);
-            _textBuffers[1] = _textBuffers[1].Substring(0, strPos-1) + "_";
+            textBuffers[0] = textBuffers[0].Remove(strPos-1);
+            textBuffers[1] = textBuffers[1].Substring(0, strPos-1) + "_";
             strPos--;
         }
         else if (command == Commands.Clear)
         {
-            _textBuffers[0] = string.Empty;
-            _textBuffers[1] = "_";
+            textBuffers[0] = string.Empty;
+            textBuffers[1] = "_";
             strPos = 0;
         }
 
@@ -84,13 +97,39 @@ public class DisplayController : MonoBehaviour
         while(alive)
         {
             yield return new WaitForSeconds(waitTime);
-            _textToDisplay = _textBuffers[tick % 2];
+            textToDisplay = textBuffers[tick % 2];
             tick++;
         }
     }
 
-    private void OnDestroy()
+    #endregion Keyhandlers
+
+    #region Helper functions
+
+    void InitDisplays()
     {
-        alive = false;
+        var components = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
+        textDisplay = GetDisplay(components, "DisplayText");
+        verifyDisplay = GetDisplay(components, "VerifyText");
     }
+
+    private TextMeshProUGUI GetDisplay(TextMeshProUGUI[] components, string v)
+    {
+        foreach (var comp in components)
+        {
+            if (comp.name.Equals(v))
+                return comp;
+        }
+
+        throw new MissingComponentException($"Can't find component {v} on {gameObject.name}");
+    }
+
+    bool NeedsUpdate()
+    {
+        var tbzClean = textToDisplay.Equals(textBuffers[0]);
+        var tboClean = textToDisplay.Equals(textBuffers[1]);
+        return !(tbzClean || tboClean);
+    }
+
+    #endregion
 }
