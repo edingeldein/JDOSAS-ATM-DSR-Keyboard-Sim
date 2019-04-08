@@ -18,25 +18,26 @@ namespace Controllers
         Transform ParentTransform;
         List<GameObject> Lines;
 
-        GameObject Cursor;
         CursorBuffers CursorBuf;
-        Text CursorLine;
+        Text CursorLineText;
 
         int CurrentLineNum = -1;
         bool TextChanged = false;
         Vector2 CurrentLineMin = new Vector2(0f, 1f);
-        Text CurrentLine;
+        GameObject CurrentLine;
+        Text CurrentLineText;
 
         void Start()
         {
             ParentTransform = gameObject.GetComponent<Transform>();
 
-            CursorBuf = new CursorBuffers();
-            Cursor = GetCursor();
+            var cursor = GetCursor();
+            CursorBuf = new CursorBuffers(cursor);
+            CursorLineText = GetCursorText(cursor);
 
             Lines = new List<GameObject>();
             var firstLine = NewLine();
-            CurrentLine = firstLine.GetComponent<Text>();
+            CurrentLineText = firstLine.GetComponent<Text>();
 
             StartCoroutine(CursorTimer(cursorBlinkTime));
         }
@@ -44,26 +45,27 @@ namespace Controllers
         // Update is called once per frame
         void Update()
         {
-            CursorBuf.Update(CurrentLine.text);
-            CursorLine.text = CursorBuf.Display;
+            CursorBuf.Update(CurrentLineText.text, CurrentLine, CurrentLineNum);
+            CursorLineText.text = CursorBuf.Display;
         }
 
         public GameObject GetCursor()
         {
             var go = Instantiate(NewLinePrefab, ParentTransform).gameObject;
 
-            CursorBuf = new CursorBuffers();
-            var t = go.GetComponent<Text>();
-            t.text = CursorBuf.Display;
-            t.fontStyle = FontStyle.Bold;
-            CursorLine = t;
-
             var rt = go.GetComponent<RectTransform>();
             rt.anchorMin = new Vector2(CurrentLineMin.x, CurrentLineMin.y - HeightDelta);
             rt.anchorMax = new Vector2(1f, CurrentLineMin.y);
 
             return go;
+        }
 
+        private Text GetCursorText(GameObject cursor)
+        {
+            var t = cursor.GetComponent<Text>();
+            t.text = CursorBuf.Display;
+            t.fontStyle = FontStyle.Bold;
+            return t;
         }
 
         public GameObject NewLine()
@@ -75,11 +77,12 @@ namespace Controllers
         {
             // Instantiate prefab as game object
             var go = Instantiate(NewLinePrefab, ParentTransform).gameObject;
+            CurrentLine = go;
 
             // Set Text and current editable line
             var t = go.GetComponent<Text>();
             t.text = startingText;
-            CurrentLine = t;
+            CurrentLineText = t;
 
             // Set Rect transform of new object and update existing current line minimum anchor.
             var rt = go.GetComponent<RectTransform>();
@@ -95,33 +98,31 @@ namespace Controllers
         {
             var go = NewLine();
             Lines.Add(go);
-            CurrentLine = Lines[CurrentLineNum].GetComponent<Text>();
+            CurrentLineText = Lines[CurrentLineNum].GetComponent<Text>();
         }
 
         internal void AddText(string value)
         {
-            CurrentLine.text += value;
+            CurrentLineText.text += value;
             TextChanged = true;
         }
 
         internal void ExecuteCommand(Commands command)
         {
-            CurrentLine.text = command.ToString();
+            CurrentLineText.text = command.ToString();
             TextChanged = true;
         }
 
         internal void RemoveText(Commands command)
         {
-            if (command == Commands.Backspace && CurrentLine.text.Length > 2)
-                CurrentLine.text = CurrentLine.text.Remove(CurrentLine.text.Length - 1, 1);
+            if (command == Commands.Backspace && CurrentLineText.text.Length > 2)
+                CurrentLineText.text = CurrentLineText.text.Remove(CurrentLineText.text.Length - 1, 1);
             else if (command == Commands.Clear)
-                CurrentLine.text = "> ";
+                CurrentLineText.text = "> ";
 
             TextChanged = true;
         }
-
-
-
+        
         private IEnumerator CursorTimer(float waitTime)
         {
             while (true)
@@ -133,12 +134,16 @@ namespace Controllers
 
         internal class CursorBuffers
         {
+            private GameObject cursorObject;
+            private int currentVerticalPosition;
             public bool Active { get; set; }
             public string Cursor { get; set; }
             public string NoCursor { get; set; }
             public string Display { get; set; }
-            public CursorBuffers()
+            public CursorBuffers(GameObject cursor)
             {
+                cursorObject = cursor;
+                currentVerticalPosition = 0;
                 Active = true;
                 Cursor = "  _";
                 NoCursor = "   ";
@@ -152,17 +157,32 @@ namespace Controllers
                 NoCursor = baseStr + " ";
             }
 
-            public void Update(string currentLine)
+            public void Update(string currentLine, GameObject currentLineObj, int currentLineNum)
             {
                 var len = currentLine.Length;
                 Cursor = new string(' ', len) + "_";
                 NoCursor = new string(' ', len + 1);
                 Display = CursorBlink();
+
+                if (currentLineNum != currentVerticalPosition)
+                    UpdateVertical(currentLineObj, currentLineNum);
             }
 
             private string CursorBlink()
             {
                 return Active ? Cursor : NoCursor;
+            }
+
+            private void UpdateVertical(GameObject currentLine, int currentLineNum)
+            {
+                var currRectTrans = cursorObject.GetComponent<RectTransform>();
+                var newRectTrans = currentLine.GetComponent<RectTransform>();
+                currRectTrans.offsetMax = newRectTrans.offsetMax;
+                currRectTrans.offsetMin = newRectTrans.offsetMin;
+                currRectTrans.anchorMax = newRectTrans.anchorMax;
+                currRectTrans.anchorMin = newRectTrans.anchorMin;
+
+                currentVerticalPosition = currentLineNum;
             }
         }
     }
