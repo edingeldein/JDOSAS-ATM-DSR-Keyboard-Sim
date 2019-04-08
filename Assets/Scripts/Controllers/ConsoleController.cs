@@ -11,6 +11,7 @@ namespace Controllers
     public class ConsoleController : MonoBehaviour
     {
         public RectTransform NewLinePrefab;
+        public RectTransform KeyboardRectTransform;
         public float HeightDelta = 0.036f;
         public float padding = 5f;
         public float cursorBlinkTime = 0.3f;
@@ -22,7 +23,7 @@ namespace Controllers
         Text CursorLineText;
 
         int CurrentLineNum = -1;
-        bool TextChanged = false;
+
         Vector2 CurrentLineMin = new Vector2(0f, 1f);
         GameObject CurrentLine;
         Text CurrentLineText;
@@ -37,7 +38,7 @@ namespace Controllers
 
             Lines = new List<GameObject>();
             var firstLine = NewLine();
-            CurrentLineText = firstLine.GetComponent<Text>();
+            Lines.Add(firstLine);
 
             StartCoroutine(CursorTimer(cursorBlinkTime));
         }
@@ -47,6 +48,33 @@ namespace Controllers
         {
             CursorBuf.Update(CurrentLineText.text, CurrentLine, CurrentLineNum);
             CursorLineText.text = CursorBuf.Display;
+
+            Debug.Log($"KeyboardMax: {KeyboardRectTransform.anchorMax} --- CurrentLineMin: {CurrentLineMin}");
+            if (KeyboardRectTransform.anchorMax.y > CurrentLineMin.y)
+                ShiftLinesUp();
+        }
+
+        public void ShiftLinesUp()
+        {
+            foreach(var line in Lines)
+            {
+                var rectTrans = line.GetComponent<RectTransform>();
+                ShiftUp(rectTrans, HeightDelta);
+            }
+
+            var newLineMin = Lines[Lines.Count - 1].GetComponent<RectTransform>();
+            CurrentLineMin = newLineMin.anchorMin;
+
+            var cursorRectTrans = CursorBuf.CursorObject.GetComponent<RectTransform>();
+            ShiftUp(cursorRectTrans, HeightDelta);
+        }
+
+        private void ShiftUp(RectTransform rectTrans, float delta)
+        {
+            var max = rectTrans.anchorMax;
+            var min = rectTrans.anchorMin;
+            rectTrans.anchorMax = new Vector2(max.x, max.y + delta);
+            rectTrans.anchorMin = new Vector2(min.x, min.y + delta);
         }
 
         public GameObject GetCursor()
@@ -98,19 +126,16 @@ namespace Controllers
         {
             var go = NewLine();
             Lines.Add(go);
-            CurrentLineText = Lines[CurrentLineNum].GetComponent<Text>();
         }
 
         internal void AddText(string value)
         {
             CurrentLineText.text += value;
-            TextChanged = true;
         }
 
         internal void ExecuteCommand(Commands command)
         {
-            CurrentLineText.text = command.ToString();
-            TextChanged = true;
+            CurrentLineText.text = $"> {command.ToString()} ";
         }
 
         internal void RemoveText(Commands command)
@@ -119,8 +144,6 @@ namespace Controllers
                 CurrentLineText.text = CurrentLineText.text.Remove(CurrentLineText.text.Length - 1, 1);
             else if (command == Commands.Clear)
                 CurrentLineText.text = "> ";
-
-            TextChanged = true;
         }
         
         private IEnumerator CursorTimer(float waitTime)
@@ -134,27 +157,21 @@ namespace Controllers
 
         internal class CursorBuffers
         {
-            private GameObject cursorObject;
             private int currentVerticalPosition;
+            public GameObject CursorObject { get; }
             public bool Active { get; set; }
             public string Cursor { get; set; }
             public string NoCursor { get; set; }
             public string Display { get; set; }
+
             public CursorBuffers(GameObject cursor)
             {
-                cursorObject = cursor;
+                CursorObject = cursor;
                 currentVerticalPosition = 0;
                 Active = true;
                 Cursor = "  _";
                 NoCursor = "   ";
                 Display = Cursor;
-            }
-
-            public void Navigate(int position)
-            {
-                var baseStr = new string(' ', position - 1) + "_";
-                Cursor = baseStr + "_";
-                NoCursor = baseStr + " ";
             }
 
             public void Update(string currentLine, GameObject currentLineObj, int currentLineNum)
@@ -168,14 +185,9 @@ namespace Controllers
                     UpdateVertical(currentLineObj, currentLineNum);
             }
 
-            private string CursorBlink()
-            {
-                return Active ? Cursor : NoCursor;
-            }
-
             private void UpdateVertical(GameObject currentLine, int currentLineNum)
             {
-                var currRectTrans = cursorObject.GetComponent<RectTransform>();
+                var currRectTrans = CursorObject.GetComponent<RectTransform>();
                 var newRectTrans = currentLine.GetComponent<RectTransform>();
                 currRectTrans.offsetMax = newRectTrans.offsetMax;
                 currRectTrans.offsetMin = newRectTrans.offsetMin;
@@ -183,6 +195,18 @@ namespace Controllers
                 currRectTrans.anchorMin = newRectTrans.anchorMin;
 
                 currentVerticalPosition = currentLineNum;
+            }
+
+            public void Navigate(int position)
+            {
+                var baseStr = new string(' ', position - 1) + "_";
+                Cursor = baseStr + "_";
+                NoCursor = baseStr + " ";
+            }
+
+            private string CursorBlink()
+            {
+                return Active ? Cursor : NoCursor;
             }
         }
     }
