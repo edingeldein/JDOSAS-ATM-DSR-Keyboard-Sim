@@ -26,4 +26,22 @@ namespace CustomEnums
         RTE,
         None
     }
+
+    public enum ActionToken
+    {
+        AircraftID,
+        AircraftType,
+        BeaconCode,
+        FiledTrueAirspeed,
+        PointWhereProcessingBegins,
+        CoordinationTimeAtFix,
+        AssignedAltitude,
+        RequestedAltitude,
+        RouteOfFlight,
+        PertinentRemarks,
+        FLID,
+        FDB,
+        EDST,
+        ACL
+    }
 }
