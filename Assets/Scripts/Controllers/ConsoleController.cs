@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 using DsrBackend;
 using DsrBackend.Services;
+using DsrBackend.Utilities;
 
 namespace Controllers
 {
@@ -20,8 +21,10 @@ namespace Controllers
         public float CursorBlinkTime = 0.3f;
         public int MaxLength;
 
+        ConsoleLineManager lineGenerator;
+
         Transform parentTransform;
-        List<GameObject> lines;
+        //List<GameObject> lines;
 
         CursorBuffers cursorBuf;
         Text cursorLineText;
@@ -41,6 +44,8 @@ namespace Controllers
         // Start is called on startup
         void Start()
         {
+            lineGenerator = GameObject.Find("LineGenerator").GetComponent<ConsoleLineManager>();
+
             serviceDictionary = new DsrServiceDictionary();
             serviceDictionary.ConfigureService("FlightPlan", new FlightPlanService(flightPlansFilePath));
 
@@ -50,12 +55,10 @@ namespace Controllers
             cursorBuf = new CursorBuffers(cursor);
             cursorLineText = GetCursorText(cursor);
 
-            lines = new List<GameObject>();
-
             currentFlightPlan = serviceDictionary.Access("FlightPlan").GetRandomAction();
 
-            var firstLine = NewLine(currentFlightPlan);
-            lines.Add(firstLine);
+            currentLine = NewLine($"> {currentFlightPlan}");
+            currentLine = NewLine();
 
             StartCoroutine(CursorTimer(CursorBlinkTime));
         }
@@ -100,23 +103,12 @@ namespace Controllers
 
         public GameObject NewLine(string startingText)
         {
-            // Instantiate prefab as game object
-            var go = Instantiate(NewLinePrefab, parentTransform).gameObject;
-            currentLine = go;
-
-            // Set Text and current editable line
-            var t = go.GetComponent<Text>();
-            t.text = startingText;
-            currentLineText = t;
-
-            // Set Rect transform of new object and update existing current line minimum anchor.
-            var rt = go.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(currentLineMin.x, currentLineMin.y - HeightDelta);
-            rt.anchorMax = new Vector2(1f, currentLineMin.y);
-            currentLineMin = rt.anchorMin;
+            var nlo = lineGenerator.NewLine(startingText);
+            currentLine = nlo;
+            currentLineText = nlo.GetComponent<Text>();
+            currentLineMin = nlo.GetComponent<RectTransform>().anchorMin;
             currentLineNum++;
-
-            return go;
+            return nlo;
         }
 
         #endregion Object Creation
@@ -125,8 +117,10 @@ namespace Controllers
 
         internal void SubmitText()
         {
-            var go = NewLine();
-            lines.Add(go);
+            var userInput = currentLineText.text.Substring(2);
+            var verification = serviceDictionary.Access("FlightPlan").ValidateAction(currentFlightPlan, userInput);
+            lineGenerator.NewLine($"> Correct: {verification.Correct}");
+            lineGenerator.NewLine();
         }
 
         internal void AddText(string value)
@@ -151,14 +145,7 @@ namespace Controllers
 
         private void ShiftLinesUp()
         {
-            foreach (var line in lines)
-            {
-                var rectTrans = line.GetComponent<RectTransform>();
-                ShiftUp(rectTrans, HeightDelta);
-            }
-
-            var newLineMin = lines[lines.Count - 1].GetComponent<RectTransform>();
-            currentLineMin = newLineMin.anchorMin;
+            currentLineMin = lineGenerator.ShiftLinesUp();
 
             var cursorRectTrans = cursorBuf.CursorObject.GetComponent<RectTransform>();
             ShiftUp(cursorRectTrans, HeightDelta);
