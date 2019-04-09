@@ -1,89 +1,86 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using CustomEnums;
 using UnityEngine;
 using UnityEngine.UI;
+
+using DsrBackend;
+using DsrBackend.Services;
 
 namespace Controllers
 {
 
     public class ConsoleController : MonoBehaviour
     {
+        public TextAsset FlightPlansFile;
         public RectTransform NewLinePrefab;
         public RectTransform KeyboardRectTransform;
         public float HeightDelta = 0.036f;
-        public float padding = 5f;
-        public float cursorBlinkTime = 0.3f;
+        public float Padding = 5f;
+        public float CursorBlinkTime = 0.3f;
+        public int MaxLength;
 
-        Transform ParentTransform;
-        List<GameObject> Lines;
+        Transform parentTransform;
+        List<GameObject> lines;
 
-        CursorBuffers CursorBuf;
-        Text CursorLineText;
+        CursorBuffers cursorBuf;
+        Text cursorLineText;
 
-        int CurrentLineNum = -1;
+        int currentLineNum = -1;
 
-        Vector2 CurrentLineMin = new Vector2(0f, 1f);
-        GameObject CurrentLine;
-        Text CurrentLineText;
+        Vector2 currentLineMin = new Vector2(0f, 1f);
+        GameObject currentLine;
+        Text currentLineText;
 
+        const string flightPlansFilePath = "Assets/Scripts/Data/FlightPlans.txt";
+        DsrServiceDictionary serviceDictionary;
+        string currentFlightPlan;
+
+        #region Lifecycle
+
+        // Start is called on startup
         void Start()
         {
-            ParentTransform = gameObject.GetComponent<Transform>();
+            serviceDictionary = new DsrServiceDictionary();
+            serviceDictionary.ConfigureService("FlightPlan", new FlightPlanService(flightPlansFilePath));
+
+            parentTransform = gameObject.GetComponent<Transform>();
 
             var cursor = GetCursor();
-            CursorBuf = new CursorBuffers(cursor);
-            CursorLineText = GetCursorText(cursor);
+            cursorBuf = new CursorBuffers(cursor);
+            cursorLineText = GetCursorText(cursor);
 
-            Lines = new List<GameObject>();
-            var firstLine = NewLine();
-            Lines.Add(firstLine);
+            lines = new List<GameObject>();
 
-            StartCoroutine(CursorTimer(cursorBlinkTime));
+            currentFlightPlan = serviceDictionary.Access("FlightPlan").GetRandomAction();
+
+            var firstLine = NewLine(currentFlightPlan);
+            lines.Add(firstLine);
+
+            StartCoroutine(CursorTimer(CursorBlinkTime));
         }
 
         // Update is called once per frame
         void Update()
         {
-            CursorBuf.Update(CurrentLineText.text, CurrentLine, CurrentLineNum);
-            CursorLineText.text = CursorBuf.Display;
+            cursorBuf.Update(currentLineText.text, currentLine, currentLineNum);
+            cursorLineText.text = cursorBuf.Display;
 
-            Debug.Log($"KeyboardMax: {KeyboardRectTransform.anchorMax} --- CurrentLineMin: {CurrentLineMin}");
-            if (KeyboardRectTransform.anchorMax.y > CurrentLineMin.y)
+            if (KeyboardRectTransform.anchorMax.y > currentLineMin.y)
                 ShiftLinesUp();
         }
 
-        public void ShiftLinesUp()
-        {
-            foreach(var line in Lines)
-            {
-                var rectTrans = line.GetComponent<RectTransform>();
-                ShiftUp(rectTrans, HeightDelta);
-            }
+        #endregion Lifecycle
 
-            var newLineMin = Lines[Lines.Count - 1].GetComponent<RectTransform>();
-            CurrentLineMin = newLineMin.anchorMin;
-
-            var cursorRectTrans = CursorBuf.CursorObject.GetComponent<RectTransform>();
-            ShiftUp(cursorRectTrans, HeightDelta);
-        }
-
-        private void ShiftUp(RectTransform rectTrans, float delta)
-        {
-            var max = rectTrans.anchorMax;
-            var min = rectTrans.anchorMin;
-            rectTrans.anchorMax = new Vector2(max.x, max.y + delta);
-            rectTrans.anchorMin = new Vector2(min.x, min.y + delta);
-        }
+        #region Object Creation
 
         public GameObject GetCursor()
         {
-            var go = Instantiate(NewLinePrefab, ParentTransform).gameObject;
+            var go = Instantiate(NewLinePrefab, parentTransform).gameObject;
 
             var rt = go.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(CurrentLineMin.x, CurrentLineMin.y - HeightDelta);
-            rt.anchorMax = new Vector2(1f, CurrentLineMin.y);
+            rt.anchorMin = new Vector2(currentLineMin.x, currentLineMin.y - HeightDelta);
+            rt.anchorMax = new Vector2(1f, currentLineMin.y);
 
             return go;
         }
@@ -91,7 +88,7 @@ namespace Controllers
         private Text GetCursorText(GameObject cursor)
         {
             var t = cursor.GetComponent<Text>();
-            t.text = CursorBuf.Display;
+            t.text = cursorBuf.Display;
             t.fontStyle = FontStyle.Bold;
             return t;
         }
@@ -104,54 +101,83 @@ namespace Controllers
         public GameObject NewLine(string startingText)
         {
             // Instantiate prefab as game object
-            var go = Instantiate(NewLinePrefab, ParentTransform).gameObject;
-            CurrentLine = go;
+            var go = Instantiate(NewLinePrefab, parentTransform).gameObject;
+            currentLine = go;
 
             // Set Text and current editable line
             var t = go.GetComponent<Text>();
             t.text = startingText;
-            CurrentLineText = t;
+            currentLineText = t;
 
             // Set Rect transform of new object and update existing current line minimum anchor.
             var rt = go.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(CurrentLineMin.x, CurrentLineMin.y - HeightDelta);
-            rt.anchorMax = new Vector2(1f, CurrentLineMin.y);
-            CurrentLineMin = rt.anchorMin;
-            CurrentLineNum++;
+            rt.anchorMin = new Vector2(currentLineMin.x, currentLineMin.y - HeightDelta);
+            rt.anchorMax = new Vector2(1f, currentLineMin.y);
+            currentLineMin = rt.anchorMin;
+            currentLineNum++;
 
             return go;
         }
 
+        #endregion Object Creation
+
+        #region Keyboard Interface
+
         internal void SubmitText()
         {
             var go = NewLine();
-            Lines.Add(go);
+            lines.Add(go);
         }
 
         internal void AddText(string value)
         {
-            CurrentLineText.text += value;
+            currentLineText.text += value;
         }
 
         internal void ExecuteCommand(Commands command)
         {
-            CurrentLineText.text = $"> {command.ToString()} ";
+            currentLineText.text = $"> {command.ToString()} ";
         }
 
         internal void RemoveText(Commands command)
         {
-            if (command == Commands.Backspace && CurrentLineText.text.Length > 2)
-                CurrentLineText.text = CurrentLineText.text.Remove(CurrentLineText.text.Length - 1, 1);
+            if (command == Commands.Backspace && currentLineText.text.Length > 2)
+                currentLineText.text = currentLineText.text.Remove(currentLineText.text.Length - 1, 1);
             else if (command == Commands.Clear)
-                CurrentLineText.text = "> ";
+                currentLineText.text = "> ";
         }
-        
+
+        #endregion Keyboard Interface
+
+        private void ShiftLinesUp()
+        {
+            foreach (var line in lines)
+            {
+                var rectTrans = line.GetComponent<RectTransform>();
+                ShiftUp(rectTrans, HeightDelta);
+            }
+
+            var newLineMin = lines[lines.Count - 1].GetComponent<RectTransform>();
+            currentLineMin = newLineMin.anchorMin;
+
+            var cursorRectTrans = cursorBuf.CursorObject.GetComponent<RectTransform>();
+            ShiftUp(cursorRectTrans, HeightDelta);
+        }
+
+        private void ShiftUp(RectTransform rectTrans, float delta)
+        {
+            var max = rectTrans.anchorMax;
+            var min = rectTrans.anchorMin;
+            rectTrans.anchorMax = new Vector2(max.x, max.y + delta);
+            rectTrans.anchorMin = new Vector2(min.x, min.y + delta);
+        }
+
         private IEnumerator CursorTimer(float waitTime)
         {
             while (true)
             {
                 yield return new WaitForSeconds(waitTime);
-                CursorBuf.Active = !CursorBuf.Active;
+                cursorBuf.Active = !cursorBuf.Active;
             }
         }
 
