@@ -6,14 +6,18 @@ using DsrBackend.Utilities;
 
 public class ConsoleLineManager : MonoBehaviour
 {
-    public GameObject Display;
-    public RectTransform VerifiedLinePrefab;
+    public RectTransform VerificationPanel;
+    public RectTransform VerificationText;
     public RectTransform NewLinePrefab;
     public Vector2 CurrentMinimum = new Vector2(0f, 1f);
     [Range(0.036f,0.1f)]
     public float HeightDelta = 0.036f;
     public float CursorBlinkTime = 0.35f;
 
+    public Color Correct;
+    public Color Incorrect;
+
+    GameObject display;
     List<GameObject> lines;
     GameObject currentLine;
     Text currentLineText;
@@ -24,6 +28,8 @@ public class ConsoleLineManager : MonoBehaviour
 
     void Start()
     {
+        display = gameObject;
+
         lines = new List<GameObject>();
         var cursor = GetCursor();
         cursorBuf = new CursorBuffers(cursor);
@@ -66,7 +72,7 @@ public class ConsoleLineManager : MonoBehaviour
     public GameObject NewLine(string startingText)
     {
         //Instantiate prefab as game object
-        var go = Instantiate(NewLinePrefab, Display.GetComponent<RectTransform>()).gameObject;
+        var go = Instantiate(NewLinePrefab, display.GetComponent<RectTransform>()).gameObject;
 
         // Set Text and current editable line
         var t = go.GetComponent<Text>();
@@ -86,8 +92,33 @@ public class ConsoleLineManager : MonoBehaviour
 
     public GameObject GetVerifiedLine(ValidatedAction action)
     {
-        var vfLine = Instantiate(VerifiedLinePrefab, Display.GetComponent<RectTransform>()).gameObject;
-        return vfLine;
+        var vfPanel = Instantiate(VerificationPanel, display.GetComponent<RectTransform>()).gameObject;
+
+        var vfrt = vfPanel.GetComponent<RectTransform>();
+        vfrt.anchorMin = new Vector2(CurrentMinimum.x, CurrentMinimum.y - HeightDelta);
+        vfrt.anchorMax = new Vector2(1f, CurrentMinimum.y);
+        CurrentMinimum = vfrt.anchorMin;
+
+        var lineCarrot = Instantiate(VerificationText, vfPanel.GetComponent<RectTransform>()).gameObject;
+        lineCarrot.GetComponent<Text>().color = action.Correct ? Correct : Incorrect;
+
+        var horizPos = 0.02f;
+        foreach(var token in action.Result)
+        {
+            var tokenText = Instantiate(VerificationText, vfPanel.GetComponent<RectTransform>()).gameObject;
+            var ttText = tokenText.GetComponent<Text>();
+            var ttRectTransform = tokenText.GetComponent<RectTransform>();
+
+            ttText.text = token.Section;
+            ttText.color = token.Correct ? Correct : Incorrect;
+
+            var width = (ttText.text.Length / 100f) + 0.01f;
+            ttRectTransform.anchorMin = new Vector2(horizPos, 0f);
+            ttRectTransform.anchorMax = new Vector2(horizPos + width, 1f);
+            horizPos += width;
+        }
+
+        return AddLine(vfPanel);
     }
 
     private GameObject AddLine(GameObject line)
@@ -97,13 +128,18 @@ public class ConsoleLineManager : MonoBehaviour
         return line;
     }
 
+    //private GameObject TextFromToken(Token tok, float horizPos)
+    //{
+
+    //}
+
     #endregion Line Creation Methods
 
     #region Cursor Methods
 
     private GameObject GetCursor()
     {
-        var go = Instantiate(NewLinePrefab, Display.GetComponent<RectTransform>()).gameObject;
+        var go = Instantiate(NewLinePrefab, display.GetComponent<RectTransform>()).gameObject;
 
         var t = go.GetComponent<Text>();
         t.text = "  _";

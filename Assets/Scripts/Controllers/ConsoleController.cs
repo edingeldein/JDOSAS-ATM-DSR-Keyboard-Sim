@@ -65,6 +65,12 @@ namespace Controllers
             currentLineMin = nlo.GetComponent<RectTransform>().anchorMin;
         }
 
+        public void VerificationLine(ValidatedAction action)
+        {
+            var vlo = consoleLineManager.GetVerifiedLine(action);
+            currentLineMin = vlo.GetComponent<RectTransform>().anchorMin;
+        }
+
         #endregion ConsoleLineManager wrapper functions
 
         #region Keyboard Interface
@@ -73,7 +79,7 @@ namespace Controllers
         {
             var userInput = consoleLineManager.GetCurrentLineText();
             var verification = serviceDictionary.Access("FlightPlan").ValidateAction(currentCorrectAction, userInput);
-            NewLine($"> Correct: {verification.Correct}");
+            VerificationLine(verification);
             NewLine();
         }
 
