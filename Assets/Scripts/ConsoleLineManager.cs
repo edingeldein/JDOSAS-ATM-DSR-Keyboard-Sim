@@ -17,7 +17,7 @@ public class ConsoleLineManager : MonoBehaviour
     public Color Correct;
     public Color Incorrect;
 
-    GameObject display;
+    //GameObject display;
     List<GameObject> lines;
     GameObject currentLine;
     Text currentLineText;
@@ -26,11 +26,13 @@ public class ConsoleLineManager : MonoBehaviour
     Text cursorText;
     int currentLineNumber = -1;
 
-    void Start()
+    private void Awake()
     {
-        display = gameObject;
-
         lines = new List<GameObject>();
+    }
+
+    void Start()
+    {        
         var cursor = GetCursor();
         cursorBuf = new CursorBuffers(cursor);
 
@@ -72,7 +74,7 @@ public class ConsoleLineManager : MonoBehaviour
     public GameObject NewLine(string startingText)
     {
         //Instantiate prefab as game object
-        var go = Instantiate(NewLinePrefab, display.GetComponent<RectTransform>()).gameObject;
+        var go = Instantiate(NewLinePrefab, gameObject.GetComponent<RectTransform>()).gameObject;
 
         // Set Text and current editable line
         var t = go.GetComponent<Text>();
@@ -92,7 +94,7 @@ public class ConsoleLineManager : MonoBehaviour
 
     public GameObject GetVerifiedLine(ValidatedAction action)
     {
-        var vfPanel = Instantiate(VerificationPanel, display.GetComponent<RectTransform>()).gameObject;
+        var vfPanel = Instantiate(VerificationPanel, gameObject.GetComponent<RectTransform>()).gameObject;
 
         var vfrt = vfPanel.GetComponent<RectTransform>();
         vfrt.anchorMin = new Vector2(CurrentMinimum.x, CurrentMinimum.y - HeightDelta);
@@ -128,18 +130,13 @@ public class ConsoleLineManager : MonoBehaviour
         return line;
     }
 
-    //private GameObject TextFromToken(Token tok, float horizPos)
-    //{
-
-    //}
-
     #endregion Line Creation Methods
 
     #region Cursor Methods
 
     private GameObject GetCursor()
     {
-        var go = Instantiate(NewLinePrefab, display.GetComponent<RectTransform>()).gameObject;
+        var go = Instantiate(NewLinePrefab, gameObject.GetComponent<RectTransform>()).gameObject;
 
         var t = go.GetComponent<Text>();
         t.text = "  _";
@@ -207,7 +204,6 @@ public class ConsoleLineManager : MonoBehaviour
     }
 
     #endregion Naviagation Methods
-
 
 }
 

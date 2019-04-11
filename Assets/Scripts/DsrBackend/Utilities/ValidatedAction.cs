@@ -25,6 +25,9 @@ namespace DsrBackend.Utilities
             var corrSpl = CorrectAction.Split(' ');
             var userSpl = UserAction.Split(' ');
 
+            corrSpl = RemoveWhitespace(corrSpl);
+            userSpl = RemoveWhitespace(userSpl);
+
             var sameLen = corrSpl.Length == userSpl.Length;
             var max = (corrSpl.Length > userSpl.Length) ? corrSpl.Length : userSpl.Length;
             for (var i = 0; i < max; i++)
@@ -44,6 +47,15 @@ namespace DsrBackend.Utilities
                     break;
                 }
             }
+        }
+
+        private string[] RemoveWhitespace(string[] spl)
+        {
+            var list = new List<string>();
+            foreach (var str in spl)
+                if (!string.IsNullOrEmpty(str))
+                    list.Add(str);
+            return list.ToArray();
         }
     }
 }

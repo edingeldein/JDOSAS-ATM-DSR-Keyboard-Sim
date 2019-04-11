@@ -27,6 +27,7 @@ namespace Controllers
         // Start is called on startup
         void Start()
         {
+            Debug.Log("ConsoleController Start()");
             consoleLineManager = gameObject.GetComponent<ConsoleLineManager>();
 
             serviceDictionary = new DsrServiceDictionary();
