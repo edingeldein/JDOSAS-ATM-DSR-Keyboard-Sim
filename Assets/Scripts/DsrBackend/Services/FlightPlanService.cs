@@ -9,13 +9,10 @@ namespace DsrBackend.Services
     {
 
         private List<string> _flightPlans;
-        private string _filepath;
 
-        public FlightPlanService(string filepath)
+        public FlightPlanService(string fileContents)
         {
-            _flightPlans = FileAccess.GetFlightPlans(filepath);
-            Console.WriteLine(_flightPlans);
-            _filepath = filepath;
+            _flightPlans = FileAccess.ParseFlightPlans(fileContents);
         }
 
         public List<string> GetActionList()

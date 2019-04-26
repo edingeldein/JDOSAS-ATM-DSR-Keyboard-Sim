@@ -1668,8 +1668,8 @@ GameObject:
   - component: {fileID: 179830480}
   - component: {fileID: 179830479}
   - component: {fileID: 179830478}
-  - component: {fileID: 179830483}
   - component: {fileID: 179830484}
+  - component: {fileID: 179830483}
   m_Layer: 0
   m_Name: Display
   m_TagString: ConsoleController

@@ -33,5 +33,20 @@ namespace DsrBackend.DataAccess
 
             return list;
         }
+
+        public static List<string> ParseFlightPlans(string contents)
+        {
+            var list = new List<string>();
+
+            string[] splContents = contents.Split('\n');
+
+            foreach (var content in splContents)
+            {
+                content.Trim();
+                list.Add(content);
+            }
+
+            return list;
+        }
     }
 }

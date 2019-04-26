@@ -18,20 +18,20 @@ namespace Controllers
         ConsoleLineManager consoleLineManager;    
         Vector2 currentLineMin = new Vector2(0f, 1f);
 
-        const string flightPlansFilePath = "Assets/Scripts/Data/FlightPlans.txt";
         DsrServiceDictionary serviceDictionary;
         string currentCorrectAction;
+        bool submitted;
 
         #region Lifecycle
 
         // Start is called on startup
         void Start()
         {
-            Debug.Log("ConsoleController Start()");
             consoleLineManager = gameObject.GetComponent<ConsoleLineManager>();
 
+            TextAsset fpFile = (TextAsset)Resources.Load("FlightPlans", typeof(TextAsset));
             serviceDictionary = new DsrServiceDictionary();
-            serviceDictionary.ConfigureService("FlightPlan", new FlightPlanService(flightPlansFilePath));
+            serviceDictionary.ConfigureService("FlightPlan", new FlightPlanService(fpFile.text));
 
             currentCorrectAction = serviceDictionary.Access("FlightPlan").GetRandomAction();
 
@@ -81,6 +81,8 @@ namespace Controllers
             var userInput = consoleLineManager.GetCurrentLineText();
             var verification = serviceDictionary.Access("FlightPlan").ValidateAction(currentCorrectAction, userInput);
             VerificationLine(verification);
+            currentCorrectAction = serviceDictionary.Access("FlightPlan").GetRandomAction();
+            NewLine($"> {currentCorrectAction}");
             NewLine();
         }
 
