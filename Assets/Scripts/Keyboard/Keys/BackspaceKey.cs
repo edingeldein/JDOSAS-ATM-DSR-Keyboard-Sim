@@ -10,7 +10,7 @@ namespace DSR.Keyboard.Keys
     [RequireComponent(typeof(Button))]
     public class BackspaceKey : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        public IKeyboardController keyboardController;
+        public KeyboardController keyboardController;
 
         private Button _button;
         private bool _buttonDown;

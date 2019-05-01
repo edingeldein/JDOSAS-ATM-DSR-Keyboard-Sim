@@ -18,6 +18,7 @@ namespace DSR.Keyboard.Keys
                 throw new MissingComponentException($"Button {gameObject.name} is missing reference to keyboard controller component.");
 
             _toggle = GetComponent<Toggle>();
+            AddListener(OnToggle);
         }
 
         public void AddListener(UnityAction<bool> toggleHandler)

@@ -16,7 +16,7 @@ namespace DSR.Keyboard.Keys
     {
         public string value;
         public string shiftedValue;
-        public IKeyboardController keyboardController;
+        public KeyboardController keyboardController;
 
         private Button _button;
 
@@ -28,6 +28,7 @@ namespace DSR.Keyboard.Keys
                 throw new MissingComponentException($"Button {gameObject.name} is missing keyboard controller component.");
 
             _button = GetComponent<Button>();
+            AddListener(OnClick);
         }
 
         public void AddListener(UnityAction clickHandler)

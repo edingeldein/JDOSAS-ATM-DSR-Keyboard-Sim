@@ -22,7 +22,7 @@ namespace DSR.Keyboard
             if (_keyQueue.Count == 0) return;
             var keyVal = _keyQueue.Dequeue();
             // TODO something with the key
-            Console.WriteLine(keyVal);
+            Debug.Log(keyVal);
         }
 
         public void QueueKeypress(string keypress)
