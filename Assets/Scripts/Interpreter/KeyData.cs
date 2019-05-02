@@ -1,40 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using DSR.Interpreter.Enums;
+using DSR.Exceptions;
 using UnityEngine;
 
 namespace DSR.Interpreter
 {
     public class KeyData
     {
-        public string KeyVal { get; private set; }
         public KeyType KeyType { get; private set; }
 
-        public KeyData(string fromSerial)
+        public static KeyData NewKeyData(string key, string ser)
         {
-            if (fromSerial.Contains("Value"))
-                KeyType = KeyType.Value;             
-            else
-                KeyType = KeyType.Command;
+            var type = (ser.Contains("Value")) ? KeyType.Value : KeyType.Command;
+            if (type == KeyType.Value)
+                return new KeyValue(type, GetValue(ser));
 
-            KeyVal = GetValue(fromSerial);
+            try
+            {
+                return new KeyCommand(type, GetCommand(key));
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError(ex.Message);
+                return new KeyCommand(type, CommandType.Default);
+            }
         }
 
-        public KeyData(string keyVal, KeyType keyType)
-        {
-            KeyVal = keyVal;
-            KeyType = KeyType;
-        }
-
-        private string GetValue(string toCommand)
+        private static string GetValue(string toVal)
         {
             var rx = new Regex("\'([^\'])\'");
-            var match = rx.Match(toCommand);
+            var match = rx.Match(toVal);
             var ret = match.Value.Trim('\'');
             return ret;
+        }
+
+        private static CommandType GetCommand(string toCommand)
+        {
+            if (!Enum.TryParse<CommandType>(toCommand, out var result))
+                throw new NoEnumException($"No CommandType enum value associated with the string {toCommand}");
+            return result;
         }
 
     }

@@ -259,7 +259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: M
-  keyboardController: {fileID: 769440258}
 --- !u!1 &17141195
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: L
-  keyboardController: {fileID: 769440258}
 --- !u!1 &76648919
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: O
-  keyboardController: {fileID: 769440258}
 --- !u!1 &99401717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,7 +2805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: FP
-  keyboardController: {fileID: 769440258}
 --- !u!1 &215149813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,7 +2952,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: J
-  keyboardController: {fileID: 769440258}
 --- !u!1 &236576897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3834,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: ':'
   shiftedValue: ;
-  keyboardController: {fileID: 769440258}
 --- !u!1 &265324484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4148,7 +4142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: I
-  keyboardController: {fileID: 769440258}
 --- !u!1 &310219616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4296,7 +4289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: /
-  keyboardController: {fileID: 769440258}
 --- !u!1 &311267360
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,7 +5625,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: W
-  keyboardController: {fileID: 769440258}
 --- !u!1 &351839666
 GameObject:
   m_ObjectHideFlags: 0
@@ -6487,7 +6478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: /
-  keyboardController: {fileID: 769440258}
 --- !u!1 &387104367
 GameObject:
   m_ObjectHideFlags: 0
@@ -6800,7 +6790,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 3
-  keyboardController: {fileID: 769440258}
 --- !u!1 &403350780
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,7 +6937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  keyboardController: {fileID: 769440258}
 --- !u!1 &430313878
 GameObject:
   m_ObjectHideFlags: 0
@@ -7612,7 +7600,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 6
-  keyboardController: {fileID: 769440258}
 --- !u!1 &483276494
 GameObject:
   m_ObjectHideFlags: 0
@@ -7759,7 +7746,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: Space
-  keyboardController: {fileID: 769440258}
 --- !u!1 &486269945
 GameObject:
   m_ObjectHideFlags: 0
@@ -8646,7 +8632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: Y
-  keyboardController: {fileID: 769440258}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -9127,7 +9112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: X
-  keyboardController: {fileID: 769440258}
 --- !u!1 &567010040
 GameObject:
   m_ObjectHideFlags: 0
@@ -9225,7 +9209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ddc6acea4c043449ec1aa50182c8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyboardController: {fileID: 769440258}
 --- !u!1 &568635872
 GameObject:
   m_ObjectHideFlags: 0
@@ -9373,7 +9356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: Q
-  keyboardController: {fileID: 769440258}
 --- !u!1 &591926746
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,7 +9503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 7
-  keyboardController: {fileID: 769440258}
 --- !u!1 &608086300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10668,7 +10649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: G
-  keyboardController: {fileID: 769440258}
 --- !u!1 &693971090
 GameObject:
   m_ObjectHideFlags: 0
@@ -10682,6 +10662,7 @@ GameObject:
   - component: {fileID: 693971094}
   - component: {fileID: 693971093}
   - component: {fileID: 693971092}
+  - component: {fileID: 693971096}
   m_Layer: 0
   m_Name: bEnter
   m_TagString: Untagged
@@ -10802,6 +10783,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693971090}
   m_CullTransparentMesh: 0
+--- !u!114 &693971096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693971090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: Enter
 --- !u!1 &700483534
 GameObject:
   m_ObjectHideFlags: 0
@@ -12202,7 +12196,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: '-'
   shiftedValue: =
-  keyboardController: {fileID: 769440258}
 --- !u!1 &769440251
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,7 +12238,7 @@ RectTransform:
   m_Father: {fileID: 2000550292}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: -0.000000044681666, y: -0.000048680755}
+  m_AnchorMin: {x: -0.00000008936333, y: -0.000048719205}
   m_AnchorMax: {x: 1.0000001, y: 0.6807735}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -13326,7 +13319,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: B
-  keyboardController: {fileID: 769440258}
 --- !u!1 &827777993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13635,7 +13627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: C
-  keyboardController: {fileID: 769440258}
 --- !u!1 &874131330
 GameObject:
   m_ObjectHideFlags: 0
@@ -13943,7 +13934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: ','
-  keyboardController: {fileID: 769440258}
 --- !u!1 &910099924
 GameObject:
   m_ObjectHideFlags: 0
@@ -14546,7 +14536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: E
-  keyboardController: {fileID: 769440258}
 --- !u!1 &984360499
 GameObject:
   m_ObjectHideFlags: 0
@@ -15125,7 +15114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: H
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1027687806
 GameObject:
   m_ObjectHideFlags: 0
@@ -15273,7 +15261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: U
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1030242598
 GameObject:
   m_ObjectHideFlags: 0
@@ -15421,7 +15408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 4
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1034819294
 GameObject:
   m_ObjectHideFlags: 0
@@ -15687,7 +15673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: S
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1058692900
 GameObject:
   m_ObjectHideFlags: 0
@@ -16541,7 +16526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: R
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1098371008
 GameObject:
   m_ObjectHideFlags: 0
@@ -17262,7 +17246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: V
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1121885688
 GameObject:
   m_ObjectHideFlags: 0
@@ -19414,7 +19397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 2
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1277482423
 GameObject:
   m_ObjectHideFlags: 0
@@ -21366,7 +21348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: K
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1385368801
 GameObject:
   m_ObjectHideFlags: 0
@@ -22262,7 +22243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 8
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1416323881
 GameObject:
   m_ObjectHideFlags: 0
@@ -22775,7 +22755,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: .
-  keyboardController: {fileID: 769440258}
 --- !u!114 &1437264401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23836,7 +23815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa39bbce6001d443bebfd25733d87ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyboardController: {fileID: 769440258}
 --- !u!114 &1488896673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24870,7 +24848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: F
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1539051655
 GameObject:
   m_ObjectHideFlags: 0
@@ -26466,7 +26443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1634904025
 GameObject:
   m_ObjectHideFlags: 0
@@ -28112,7 +28088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 9
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1720974211
 GameObject:
   m_ObjectHideFlags: 0
@@ -29741,7 +29716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: P
-  keyboardController: {fileID: 769440258}
 --- !u!1001 &1798837899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30679,7 +30653,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: N
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1844521170
 GameObject:
   m_ObjectHideFlags: 0
@@ -30960,7 +30933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: Z
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1891640159
 GameObject:
   m_ObjectHideFlags: 0
@@ -31548,7 +31520,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: T
-  keyboardController: {fileID: 769440258}
 --- !u!1 &1946413692
 GameObject:
   m_ObjectHideFlags: 0
@@ -32300,6 +32271,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonText: F7
   fontSize: 60
+--- !u!1 &1979792335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979792337}
+  - component: {fileID: 1979792336}
+  m_Layer: 0
+  m_Name: LineManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1979792336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979792335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1a2b81a6dd58646a44fa69bfcb6280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1979792337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979792335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1980240501
 GameObject:
   m_ObjectHideFlags: 0
@@ -33725,7 +33739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: D
-  keyboardController: {fileID: 769440258}
 --- !u!1 &2041649500
 GameObject:
   m_ObjectHideFlags: 0
@@ -33873,7 +33886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: Tab
-  keyboardController: {fileID: 769440258}
 --- !u!1 &2047877840
 GameObject:
   m_ObjectHideFlags: 0
@@ -34315,7 +34327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 5
-  keyboardController: {fileID: 769440258}
 --- !u!1 &2087685091
 GameObject:
   m_ObjectHideFlags: 0
@@ -34624,7 +34635,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: A
-  keyboardController: {fileID: 769440258}
 --- !u!1001 &2097622348
 PrefabInstance:
   m_ObjectHideFlags: 0

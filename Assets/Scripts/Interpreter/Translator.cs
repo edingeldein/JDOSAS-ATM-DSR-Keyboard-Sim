@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using DSR.Exceptions;
+using DSR.Interpreter.Enums;
 
 namespace DSR.Interpreter
 {
@@ -29,7 +30,8 @@ namespace DSR.Interpreter
             {
                 var keyval = line.Split('~');
                 var key = keyval[0];
-                var val = new KeyData(keyval[1]);
+                var val = KeyData.NewKeyData(key, keyval[1]);
+                Debug.LogWarning($"({key}, {val})");
                 _dictionary.Add(key, val);
             }
 
