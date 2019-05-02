@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using DSR.Exceptions;
 using DSR.Keyboard.Interfaces;
-using DSR.Keyboard.Enums;
 
 namespace DSR.Keyboard.Keys
 {
@@ -12,15 +11,15 @@ namespace DSR.Keyboard.Keys
     public class Key: MonoBehaviour, IClickable
     {
         public string value;
-        public KeyboardController keyboardController;
 
+        private IKeyboardController _keyboardController;
         private Button _button;
         
         private void Start()
         {
             if (string.IsNullOrEmpty(value)) throw new NoButtonValueException($"Button {gameObject.name} has no assigned value.");
-            if (keyboardController == null) throw new MissingComponentException($"Button {gameObject.name} missing reference to keyboard controller.");
 
+            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _button = GetComponent<Button>();
             AddListener(OnClick);
         }
@@ -32,7 +31,7 @@ namespace DSR.Keyboard.Keys
 
         public void OnClick()
         {
-            keyboardController.QueueKeypress(value);
+            _keyboardController.QueueKeypress(value);
         }
     }
 }

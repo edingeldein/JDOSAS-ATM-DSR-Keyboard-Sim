@@ -16,17 +16,16 @@ namespace DSR.Keyboard.Keys
     {
         public string value;
         public string shiftedValue;
-        public KeyboardController keyboardController;
 
+        private IKeyboardController _keyboardController;
         private Button _button;
 
         void Start()
         {
             if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(shiftedValue))
                 throw new NoButtonValueException($"Button {gameObject.name} has no assigned value.");
-            if (keyboardController == null)
-                throw new MissingComponentException($"Button {gameObject.name} is missing keyboard controller component.");
 
+            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _button = GetComponent<Button>();
             AddListener(OnClick);
         }
@@ -38,10 +37,10 @@ namespace DSR.Keyboard.Keys
 
         public void OnClick()
         {
-            if (keyboardController.GetShift())
-                keyboardController.QueueKeypress(shiftedValue);
+            if (_keyboardController.GetShift())
+                _keyboardController.QueueKeypress(shiftedValue);
             else
-                keyboardController.QueueKeypress(value);
+                _keyboardController.QueueKeypress(value);
         }
 
     }

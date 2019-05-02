@@ -10,18 +10,15 @@ namespace DSR.Keyboard.Keys
     [RequireComponent(typeof(Button))]
     public class BackspaceKey : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        public KeyboardController keyboardController;
-
+        private IKeyboardController _keyboardController;
         private Button _button;
         private bool _buttonDown;
         private const string _backspaceValue = "Backspace";
 
         void Start()
         {
-            if (keyboardController == null)
-                throw new MissingComponentException($"Button {gameObject.name} is missing keyboard controller component.");
+            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _button = GetComponent<Button>();
-
             _buttonDown = false;
         }
 
@@ -33,7 +30,7 @@ namespace DSR.Keyboard.Keys
         public void OnPointerDown(PointerEventData eventData)
         {
             Debug.Log("PointerDown");
-            keyboardController.QueueKeypress(_backspaceValue);
+            _keyboardController.QueueKeypress(_backspaceValue);
             StartCoroutine("BackspaceHoldHandler");
             _buttonDown = true;
         }
@@ -49,7 +46,7 @@ namespace DSR.Keyboard.Keys
             yield return new WaitForSeconds(.4f);
             while(_buttonDown)
             {
-                keyboardController.QueueKeypress(_backspaceValue);
+                _keyboardController.QueueKeypress(_backspaceValue);
                 yield return new WaitForSeconds(.1f);
             }
         }

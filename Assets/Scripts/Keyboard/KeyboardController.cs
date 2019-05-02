@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DSR.Keyboard.Interfaces;
+using DSR.Interpreter;
+using DSR.Interpreter.Interfaces;
 
 namespace DSR.Keyboard
 {
@@ -9,20 +11,22 @@ namespace DSR.Keyboard
     {
         private Queue<string> _keyQueue;
         private bool _shifted;
-        // Interpreter
+        private IInterpreterController _interpreterController;
 
         void Start()
         {
             _keyQueue = new Queue<string>();
             _shifted = false;
+            _interpreterController = GameObject.Find("Interpreter").GetComponent<IInterpreterController>();
         }
 
         void Update()
         {
-            if (_keyQueue.Count == 0) return;
-            var keyVal = _keyQueue.Dequeue();
-            // TODO something with the key
-            Debug.Log(keyVal);
+            while(_keyQueue.Count > 0)
+            {
+                var keyVal = _keyQueue.Dequeue();
+                _interpreterController.Interpret(keyVal);
+            }
         }
 
         public void QueueKeypress(string keypress)

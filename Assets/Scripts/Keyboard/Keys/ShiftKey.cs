@@ -8,15 +8,12 @@ namespace DSR.Keyboard.Keys
     [RequireComponent(typeof(Toggle))]
     public class ShiftKey : MonoBehaviour, IToggleable
     {
-        public KeyboardController keyboardController;
-
+        private IKeyboardController _keyboardController;
         private Toggle _toggle;
 
         private void Start()
         {
-            if (keyboardController == null)
-                throw new MissingComponentException($"Button {gameObject.name} is missing reference to keyboard controller component.");
-
+            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _toggle = GetComponent<Toggle>();
             AddListener(OnToggle);
         }
@@ -28,7 +25,7 @@ namespace DSR.Keyboard.Keys
 
         public void OnToggle(bool value)
         {
-            keyboardController.SetShift(value);
+            _keyboardController.SetShift(value);
         }
 
     }

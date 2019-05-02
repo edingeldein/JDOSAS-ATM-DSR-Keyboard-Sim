@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSR.Keyboard.Enums
+namespace DSR.Interpreter.Enums
 {
     public enum KeyType
     {
