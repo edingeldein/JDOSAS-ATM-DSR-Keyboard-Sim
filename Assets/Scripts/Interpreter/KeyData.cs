@@ -18,7 +18,7 @@ namespace DSR.Interpreter
 
             try
             {
-                return new KeyCommand(type, GetCommand(key));
+                return new KeyCommand(KeyType.Command, GetCommand(key));
             }
             catch(Exception ex)
             {

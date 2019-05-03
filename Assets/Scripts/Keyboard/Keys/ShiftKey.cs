@@ -8,12 +8,12 @@ namespace DSR.Keyboard.Keys
     [RequireComponent(typeof(Toggle))]
     public class ShiftKey : MonoBehaviour, IToggleable
     {
-        private IKeyboardController _keyboardController;
+        [SerializeField]
+        private KeyboardController _keyboardController;
         private Toggle _toggle;
 
         private void Start()
         {
-            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _toggle = GetComponent<Toggle>();
             AddListener(OnToggle);
         }

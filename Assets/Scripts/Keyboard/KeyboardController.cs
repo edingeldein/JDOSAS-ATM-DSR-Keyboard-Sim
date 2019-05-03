@@ -11,13 +11,13 @@ namespace DSR.Keyboard
     {
         private Queue<string> _keyQueue;
         private bool _shifted;
-        private IInterpreterController _interpreterController;
+
+        [SerializeField] private InterpreterController _interpreterController;
 
         void Start()
         {
             _keyQueue = new Queue<string>();
             _shifted = false;
-            _interpreterController = GameObject.Find("Interpreter").GetComponent<IInterpreterController>();
         }
 
         void Update()

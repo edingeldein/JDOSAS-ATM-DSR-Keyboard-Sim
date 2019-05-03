@@ -3,6 +3,7 @@ using UnityEngine;
 using DSR.Interpreter.Interfaces;
 using DSR.Interpreter.Enums;
 using DSR.LineManager.Interfaces;
+using DSR.LineManager;
 
 namespace DSR.Interpreter
 {
@@ -10,14 +11,13 @@ namespace DSR.Interpreter
     {
         private Translator _translator;
         private Queue<KeyData> _keyQueue;
-        private ILineManagerController _lineManagerController;
-        private bool bam = false;
+
+        [SerializeField] private LineManagerController _lineManagerController;
 
         private void Start()
         {
             _translator = new Translator();
             _keyQueue = new Queue<KeyData>();
-            _lineManagerController = GameObject.Find("LineManager").GetComponent<ILineManagerController>();
         }
 
         // Command switch
@@ -26,19 +26,17 @@ namespace DSR.Interpreter
             while(_keyQueue.Count > 0)
             {
                 var keyData = _keyQueue.Dequeue();
-                Debug.Log($"keyData({keyData.KeyType})");
-                if (keyData.KeyType == KeyType.Value)
-                    _lineManagerController.KeyValueInput(keyData);
+                if (keyData.GetType() == typeof(KeyValue))
+                    _lineManagerController.KeyValueInput(keyData as KeyValue);
+                else
+                    _lineManagerController.KeyCommandInput(keyData as KeyCommand);
             }
         }
 
         public void Interpret(string key)
         {
             var keyData = _translator.Translate(key);
-
-            if (keyData.KeyType == KeyType.Command) _keyQueue.Enqueue(keyData);
-            else _keyQueue.Enqueue(keyData);
-            bam = true;
+            _keyQueue.Enqueue(keyData);
         }
     }
 }

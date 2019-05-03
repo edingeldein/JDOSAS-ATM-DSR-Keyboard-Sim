@@ -12,14 +12,13 @@ namespace DSR.Keyboard.Keys
     {
         public string value;
 
-        private IKeyboardController _keyboardController;
+        [SerializeField] private KeyboardController _keyboardController;
         private Button _button;
         
         private void Start()
         {
             if (string.IsNullOrEmpty(value)) throw new NoButtonValueException($"Button {gameObject.name} has no assigned value.");
 
-            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _button = GetComponent<Button>();
             AddListener(OnClick);
         }

@@ -8,17 +8,9 @@ namespace DSR.Interpreter
     {
         public string Value { get; private set; }
 
-        public KeyValue(KeyType type, string serial)
+        public KeyValue(KeyType type, string val)
         {
-            Value = GetValue(serial);
-        }
-
-        private string GetValue(string toCommand)
-        {
-            var rx = new Regex("\'([^\'])\'");
-            var match = rx.Match(toCommand);
-            var ret = match.Value.Trim('\'');
-            return ret;
+            Value = val;
         }
     }
 }

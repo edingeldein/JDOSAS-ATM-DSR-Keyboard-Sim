@@ -9,7 +9,7 @@ namespace DSR.LineManager.Interfaces
 {
     public interface ILineManagerController
     {
-        void KeyValueInput(KeyData keyData);
-        void KeyCommandInput(KeyData keyData);
+        void KeyValueInput(KeyValue keyValue);
+        void KeyCommandInput(KeyCommand keyCommand);
     }
 }

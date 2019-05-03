@@ -10,14 +10,14 @@ namespace DSR.Keyboard.Keys
     [RequireComponent(typeof(Button))]
     public class BackspaceKey : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        private IKeyboardController _keyboardController;
+        [SerializeField] private KeyboardController _keyboardController;
+
         private Button _button;
         private bool _buttonDown;
         private const string _backspaceValue = "Backspace";
 
         void Start()
         {
-            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _button = GetComponent<Button>();
             _buttonDown = false;
         }

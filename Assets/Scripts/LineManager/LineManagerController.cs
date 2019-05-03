@@ -24,14 +24,15 @@ namespace DSR.LineManager
             
         }
 
-        public void KeyValueInput(KeyData keyData)
+        public void KeyValueInput(KeyValue keyValue)
         {
-            
+            _currentLine.AddChar(keyValue.Value);
+            Debug.Log($"KeyValue: {keyValue.Value}");
         }
 
-        public void KeyCommandInput(KeyData KeyData)
+        public void KeyCommandInput(KeyCommand keyCommand)
         {
-            
+            Debug.Log($"KeyValue: {keyCommand.Command}");
         }
     }
 }

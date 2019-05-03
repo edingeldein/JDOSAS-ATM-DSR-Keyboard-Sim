@@ -17,7 +17,7 @@ namespace DSR.Keyboard.Keys
         public string value;
         public string shiftedValue;
 
-        private IKeyboardController _keyboardController;
+        [SerializeField] private KeyboardController _keyboardController;
         private Button _button;
 
         void Start()
@@ -25,7 +25,6 @@ namespace DSR.Keyboard.Keys
             if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(shiftedValue))
                 throw new NoButtonValueException($"Button {gameObject.name} has no assigned value.");
 
-            _keyboardController = GameObject.Find("Keyboard").GetComponent<IKeyboardController>();
             _button = GetComponent<Button>();
             AddListener(OnClick);
         }
