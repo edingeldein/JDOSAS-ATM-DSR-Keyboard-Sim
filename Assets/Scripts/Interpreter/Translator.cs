@@ -31,7 +31,6 @@ namespace DSR.Interpreter
                 var keyval = line.Split('~');
                 var key = keyval[0];
                 var val = KeyData.NewKeyData(key, keyval[1]);
-                Debug.LogWarning($"({key}, {val})");
                 _dictionary.Add(key, val);
             }
 

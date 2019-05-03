@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179830476}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2764838e922de4f47b1dca9dbfbf6cd4, type: 3}
   m_Name: 
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179830476}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19080b65656e3a04a975550549085333, type: 3}
   m_Name: 
@@ -2808,7 +2808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: FP
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &215149813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: ':'
   shiftedValue: ;
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &265324484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6487,7 +6487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: /
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &387104367
 GameObject:
   m_ObjectHideFlags: 0
@@ -6800,7 +6800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 3
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &403350780
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,7 +6948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &430313878
 GameObject:
   m_ObjectHideFlags: 0
@@ -7612,7 +7612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 6
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &483276494
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,7 +9521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 7
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &608086300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10990,6 +10990,7 @@ GameObject:
   - component: {fileID: 706374903}
   - component: {fileID: 706374902}
   - component: {fileID: 706374901}
+  - component: {fileID: 706374905}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -11035,6 +11036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1a2b81a6dd58646a44fa69bfcb6280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _consoleController: {fileID: 706374905}
 --- !u!4 &706374904
 Transform:
   m_ObjectHideFlags: 0
@@ -11049,6 +11051,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &706374905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16b985fa51710645b223bdaed8e5b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinePrefab: {fileID: 5912847827402958330, guid: 78f2e81f927783e4abd9de0bb686d3a7,
+    type: 3}
+  CurrentMinimum: {x: 0, y: 1}
+  HeightDelta: 0.036
+  CursorBlinkTime: 0.35
+  _displayCanvas: {fileID: 179830477}
 --- !u!1 &713145315
 GameObject:
   m_ObjectHideFlags: 0
@@ -12288,7 +12308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: '-'
   shiftedValue: =
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &769440251
 GameObject:
   m_ObjectHideFlags: 0
@@ -15494,7 +15514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 4
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1034819294
 GameObject:
   m_ObjectHideFlags: 0
@@ -19459,7 +19479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 2
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1277482423
 GameObject:
   m_ObjectHideFlags: 0
@@ -22307,7 +22327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 8
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1416323881
 GameObject:
   m_ObjectHideFlags: 0
@@ -23881,7 +23901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa39bbce6001d443bebfd25733d87ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!114 &1488896673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26526,7 +26546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1634904025
 GameObject:
   m_ObjectHideFlags: 0
@@ -26540,6 +26560,7 @@ GameObject:
   - component: {fileID: 1634904029}
   - component: {fileID: 1634904028}
   - component: {fileID: 1634904027}
+  - component: {fileID: 1634904031}
   m_Layer: 0
   m_Name: bClear
   m_TagString: Untagged
@@ -26660,6 +26681,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634904025}
   m_CullTransparentMesh: 0
+--- !u!114 &1634904031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634904025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: Clear
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1638911080
 GameObject:
   m_ObjectHideFlags: 0
@@ -28172,7 +28207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 9
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1720974211
 GameObject:
   m_ObjectHideFlags: 0
@@ -33948,7 +33983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: Tab
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &2047877840
 GameObject:
   m_ObjectHideFlags: 0
@@ -34405,7 +34440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 5
-  _keyboardController: {fileID: 0}
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &2087685091
 GameObject:
   m_ObjectHideFlags: 0
