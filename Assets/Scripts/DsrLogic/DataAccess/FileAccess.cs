@@ -2,7 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace DsrBackend.DataAccess
+namespace DSR.DsrLogic.DataAccess
 {
     public class FileAccess
     {
@@ -27,8 +27,8 @@ namespace DsrBackend.DataAccess
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception caught reading file: {ex.Message}");
-                Console.WriteLine(ex.StackTrace);
+                System.Console.WriteLine($"Exception caught reading file: {ex.Message}");
+                System.Console.WriteLine(ex.StackTrace);
             }
 
             return list;

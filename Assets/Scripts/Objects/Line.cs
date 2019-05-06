@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DSR.Enums;
 
-namespace DSR.LineManager
+namespace DSR.Objects
 {
     public class Line
     {
         public string Text { get; private set; }
         public string CursorText { get; private set; }
         public int Length => Text.Length;
+        public CommandType CurrentCommandType { get; private set; }
 
         public Line()
         {
@@ -43,6 +40,11 @@ namespace DSR.LineManager
         {
             Text = string.Empty;
             UpdateCursor();
+        }
+
+        public void StartCommand(CommandType command)
+        {
+
         }
 
         private void UpdateCursor()

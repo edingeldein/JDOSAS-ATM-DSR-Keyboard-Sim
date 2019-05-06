@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DsrBackend.Utilities;
+using DSR.DsrLogic.Utilities;
 
 public class ConsoleLineManager : MonoBehaviour
 {

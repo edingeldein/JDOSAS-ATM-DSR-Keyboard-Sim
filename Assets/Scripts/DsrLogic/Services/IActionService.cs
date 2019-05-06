@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using DsrBackend.Utilities;
+using DSR.DsrLogic.Utilities;
 
-namespace DsrBackend.Services
+namespace DSR.DsrLogic.Services
 {
     public interface IActionService
     {

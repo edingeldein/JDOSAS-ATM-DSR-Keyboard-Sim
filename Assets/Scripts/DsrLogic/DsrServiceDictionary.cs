@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using DsrBackend.Services;
+using DSR.DsrLogic.Services;
 
-namespace DsrBackend
+namespace DSR.DsrLogic
 {
     public class DsrServiceDictionary
     {

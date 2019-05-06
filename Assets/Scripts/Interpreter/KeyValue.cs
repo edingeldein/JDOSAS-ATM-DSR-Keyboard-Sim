@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using DSR.Interpreter.Enums;
+using DSR.Enums;
 
 namespace DSR.Interpreter
 {

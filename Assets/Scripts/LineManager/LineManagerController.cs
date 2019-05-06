@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using DSR.LineManager.Interfaces;
 using DSR.Interpreter;
-using DSR.Interpreter.Enums;
+using DSR.Enums;
 using DSR.Console;
+using DSR.Objects;
 
 namespace DSR.LineManager
 {

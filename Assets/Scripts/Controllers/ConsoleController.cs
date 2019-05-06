@@ -4,9 +4,9 @@ using CustomEnums;
 using UnityEngine;
 using UnityEngine.UI;
 
-using DsrBackend;
-using DsrBackend.Services;
-using DsrBackend.Utilities;
+using DSR.DsrLogic;
+using DSR.DsrLogic.Services;
+using DSR.DsrLogic.Utilities;
 
 namespace Controllers
 {

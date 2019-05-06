@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DsrBackend.Utilities
+namespace DSR.DsrLogic.Utilities
 {
     public class ValidatedAction
     {

@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DSR.Interpreter.Interfaces;
-using DSR.Interpreter.Enums;
-using DSR.LineManager.Interfaces;
 using DSR.LineManager;
 
 namespace DSR.Interpreter

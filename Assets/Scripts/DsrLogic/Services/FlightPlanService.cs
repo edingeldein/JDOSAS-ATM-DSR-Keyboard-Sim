@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using DsrBackend.DataAccess;
-using DsrBackend.Utilities;
+using DSR.DsrLogic.DataAccess;
+using DSR.DsrLogic.Utilities;
 
-namespace DsrBackend.Services
+namespace DSR.DsrLogic.Services
 {
     public class FlightPlanService : IActionService
     {
