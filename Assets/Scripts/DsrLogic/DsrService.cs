@@ -27,7 +27,7 @@ namespace DSR.DsrLogic
         public ValidatedAction Validate(Line line)
         {
             var service = _serviceDictionary.Access(FlightPlans);
-            return null;
+            return service.ValidateAction(line.Text);
         }
 
         private string GetFileContents(string filename)

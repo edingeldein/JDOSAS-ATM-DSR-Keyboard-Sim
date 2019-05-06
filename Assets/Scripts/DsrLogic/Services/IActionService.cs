@@ -8,5 +8,6 @@ namespace DSR.DsrLogic.Services
         List<string> GetActionList();
         string GetRandomAction();
         ValidatedAction ValidateAction(string correctAction, string userAction);
+        ValidatedAction ValidateAction(string searchAction);
     }
 }
