@@ -4,12 +4,15 @@ using DSR.Interpreter;
 using DSR.Enums;
 using DSR.Console;
 using DSR.Objects;
+using DSR.DsrLogic;
+using DSR.DsrLogic.Utilities;
 
 namespace DSR.LineManager
 {
     public class LineManagerController : MonoBehaviour, ILineManagerController
     {
         [SerializeField] private ConsoleController _consoleController;
+        [SerializeField] private DsrService _dsrService;
         private Line _currentLine;
         private bool _newVal;
 
@@ -48,7 +51,7 @@ namespace DSR.LineManager
                     _currentLine.ClearLine();
                     break;
                 case CommandType.Enter:
-                    // TODO Do something to submit current line...
+                    ValidateLine();
                     break;
                 case CommandType.FP:
                     // TODO PrintFP
@@ -64,6 +67,12 @@ namespace DSR.LineManager
             }
 
             _newVal = true;
+        }
+
+        private void ValidateLine()
+        {
+            var validatedAction = _dsrService.Validate(_currentLine);
+            _consoleController.DisplayValidation(validatedAction);
         }
     }
 }

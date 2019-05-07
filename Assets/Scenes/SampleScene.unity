@@ -10991,6 +10991,7 @@ GameObject:
   - component: {fileID: 706374902}
   - component: {fileID: 706374901}
   - component: {fileID: 706374905}
+  - component: {fileID: 706374906}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -11037,6 +11038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _consoleController: {fileID: 706374905}
+  _dsrService: {fileID: 706374906}
 --- !u!4 &706374904
 Transform:
   m_ObjectHideFlags: 0
@@ -11065,10 +11067,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LinePrefab: {fileID: 5912847827402958330, guid: 78f2e81f927783e4abd9de0bb686d3a7,
     type: 3}
+  VerificationPanel: {fileID: 3203122256522235603, guid: 8ac93ed5d45d811408e58810c1df733f,
+    type: 3}
+  VerificationText: {fileID: 1806732326903630922, guid: 94736d409d481fd46b49041757a8899a,
+    type: 3}
   CurrentMinimum: {x: 0, y: 1}
+  Valid: {r: 0.5804546, g: 1, b: 0.3160377, a: 0}
+  Invalid: {r: 1, g: 0.41037738, b: 0.41037738, a: 0}
   HeightDelta: 0.036
   CursorBlinkTime: 0.35
   _displayCanvas: {fileID: 179830477}
+--- !u!114 &706374906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a360d17bf987255449fbc570dc32ad5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &713145315
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,14 +9,14 @@ namespace DSR.DsrLogic
     {
         private DsrServiceDictionary _serviceDictionary;
 
-        private const string FlightPlans = "FlightPlans";
+        private const string FlightPlan = "FlightPlan";
 
         private void Start()
         {
             _serviceDictionary = new DsrServiceDictionary();
 
-            var flightPlanText = GetFileContents(FlightPlans);
-            _serviceDictionary.ConfigureService("FlightPlan", new FlightPlanService(flightPlanText));
+            var flightPlanText = GetFileContents("FlightPlans");
+            _serviceDictionary.ConfigureService(FlightPlan, new FlightPlanService(flightPlanText));
         }
 
         private void Update()
@@ -26,7 +26,7 @@ namespace DSR.DsrLogic
 
         public ValidatedAction Validate(Line line)
         {
-            var service = _serviceDictionary.Access(FlightPlans);
+            var service = _serviceDictionary.Access(FlightPlan);
             return service.ValidateAction(line.Text);
         }
 
