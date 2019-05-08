@@ -13,7 +13,7 @@ namespace DSR.LineManager
     {
         [SerializeField] private ConsoleController _consoleController;
         [SerializeField] private DsrService _dsrService;
-        private Line _currentLine;
+        [SerializeField] private Line _currentLine;
         private bool _newVal;
 
         private void Start()
@@ -32,13 +32,21 @@ namespace DSR.LineManager
             }
         }
 
-        public void KeyValueInput(KeyValue keyValue)
+        public void KeyInput(KeyData keyData)
         {
+            if (keyData.Key == KeyType.Command) KeyCommandInput(keyData);
+            else if (keyData.Key == KeyType.Action) KeyActionInput(keyData);
+            KeyValueInput(keyData);
+        }
+
+        private void KeyValueInput(KeyData keyValue)
+        {
+            if (string.IsNullOrEmpty(keyValue.Value)) return;
             _currentLine.AddChar(keyValue.Value);
             _newVal = true;
         }
 
-        public void KeyCommandInput(KeyCommand keyCommand)
+        private void KeyCommandInput(KeyData keyCommand)
         {
             var command = keyCommand.Command;
 
@@ -51,10 +59,8 @@ namespace DSR.LineManager
                     _currentLine.ClearLine();
                     break;
                 case CommandType.Enter:
+                    //TODO Process line
                     ValidateLine();
-                    break;
-                case CommandType.FP:
-                    // TODO PrintFP
                     break;
                 case CommandType.Up:
                     break;
@@ -69,6 +75,21 @@ namespace DSR.LineManager
             _newVal = true;
         }
 
+        private void KeyActionInput(KeyData keyAction)
+        {
+            _currentLine.ClearLine();
+            _currentLine.StartAction(keyAction.Action);
+        }
+
+        //TODO Execute if in 'simulate' mode
+        private void ProcessLine()
+        {
+            //TODO Extract command
+            //TODO Interpret command
+            //TODO Perform command
+        }
+
+        //TODO Execute if in 'practice' mode
         private void ValidateLine()
         {
             var validatedAction = _dsrService.Validate(_currentLine);

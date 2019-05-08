@@ -5,5 +5,6 @@ namespace DSR.Memory
 {
     public class MemoryController : IMemoryController 
     {
+
     }
 }

@@ -9,6 +9,7 @@ namespace DSR.Enums
     public enum KeyType
     {
         Value,
-        Command
+        Command,
+        Action
     }
 }

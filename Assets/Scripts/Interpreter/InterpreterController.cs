@@ -2,6 +2,7 @@
 using UnityEngine;
 using DSR.Interpreter.Interfaces;
 using DSR.LineManager;
+using DSR.Objects;
 
 namespace DSR.Interpreter
 {
@@ -24,10 +25,7 @@ namespace DSR.Interpreter
             while(_keyQueue.Count > 0)
             {
                 var keyData = _keyQueue.Dequeue();
-                if (keyData.GetType() == typeof(KeyValue))
-                    _lineManagerController.KeyValueInput(keyData as KeyValue);
-                else
-                    _lineManagerController.KeyCommandInput(keyData as KeyCommand);
+                _lineManagerController.KeyInput(keyData);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DSR.Exceptions;
+using DSR.Objects;
 
 namespace DSR.Interpreter
 {
@@ -25,7 +26,7 @@ namespace DSR.Interpreter
             {
                 var keyval = line.Split('~');
                 var key = keyval[0];
-                var val = KeyData.NewKeyData(key, keyval[1]);
+                var val = new KeyData(key, keyval[1]);
                 _dictionary.Add(key, val);
             }
 

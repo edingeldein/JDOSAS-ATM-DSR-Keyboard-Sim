@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DSR.Interpreter;
+﻿using DSR.Objects;
 
 namespace DSR.LineManager.Interfaces
 {
     public interface ILineManagerController
     {
-        void KeyValueInput(KeyValue keyValue);
-        void KeyCommandInput(KeyCommand keyCommand);
+        void KeyInput(KeyData keyValue);
     }
 }

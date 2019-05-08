@@ -15,7 +15,6 @@ namespace DSR.Enums
         Down,
         Left,
         Right,
-        FP,
-        Default
+        None
     }
 }

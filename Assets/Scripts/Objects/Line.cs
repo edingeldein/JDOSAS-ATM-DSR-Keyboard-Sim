@@ -1,4 +1,5 @@
-﻿using DSR.Enums;
+﻿using System;
+using DSR.Enums;
 
 namespace DSR.Objects
 {
@@ -7,7 +8,7 @@ namespace DSR.Objects
         public string Text { get; private set; }
         public string CursorText { get; private set; }
         public int Length => Text.Length;
-        public CommandType CurrentCommandType { get; private set; }
+        public ActionType CurrentActionType { get; private set; }
 
         public Line()
         {
@@ -42,9 +43,9 @@ namespace DSR.Objects
             UpdateCursor();
         }
 
-        public void StartCommand(CommandType command)
+        public void StartAction(ActionType action)
         {
-
+            CurrentActionType = action;
         }
 
         private void UpdateCursor()
@@ -56,6 +57,5 @@ namespace DSR.Objects
 
             CursorText += '_';
         }
-
     }
 }
