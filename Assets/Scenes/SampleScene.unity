@@ -255,14 +255,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8185528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: M
-  valueShifted: M
-  command: 12
+  value: M
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &17141195
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,14 +669,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 26975115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: L
-  valueShifted: L
-  command: 12
+  value: L
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &76648919
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,14 +817,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 76648919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: O
-  valueShifted: O
-  command: 12
+  value: O
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &99401717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,8 +1659,6 @@ GameObject:
   - component: {fileID: 179830480}
   - component: {fileID: 179830479}
   - component: {fileID: 179830478}
-  - component: {fileID: 179830484}
-  - component: {fileID: 179830483}
   m_Layer: 0
   m_Name: Display
   m_TagString: ConsoleController
@@ -1794,42 +1783,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &179830483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179830476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2764838e922de4f47b1dca9dbfbf6cd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KeyboardRectTransform: {fileID: 769440252}
---- !u!114 &179830484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179830476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19080b65656e3a04a975550549085333, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VerificationPanel: {fileID: 3203122256522235603, guid: 8ac93ed5d45d811408e58810c1df733f,
-    type: 3}
-  VerificationText: {fileID: 1806732326903630922, guid: 94736d409d481fd46b49041757a8899a,
-    type: 3}
-  NewLinePrefab: {fileID: 5912847827402958330, guid: 78f2e81f927783e4abd9de0bb686d3a7,
-    type: 3}
-  CurrentMinimum: {x: 0, y: 1}
-  HeightDelta: 0.036
-  CursorBlinkTime: 0.35
-  Correct: {r: 0.40319645, g: 1, b: 0.3726415, a: 1}
-  Incorrect: {r: 0.9339623, g: 0.3039783, b: 0.3039783, a: 1}
 --- !u!1 &193299644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,14 +2766,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 211157963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 0
-  shiftable: 0
-  valueUnshifted: 
-  valueShifted: 
-  command: 9
+  value: FP
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &215149813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,14 +2914,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 215149813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: J
-  valueShifted: J
-  command: 12
+  value: J
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &236576897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,14 +3796,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 255251829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7d5ce4d009c0c4388256ef294cb3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 1
-  valueUnshifted: ;
-  valueShifted: ':'
-  command: 12
+  value: ':'
+  shiftedValue: ;
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &265324484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,14 +4106,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 306556139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: I
-  valueShifted: I
-  command: 12
+  value: I
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &310219616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4312,14 +4254,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 310219616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: /
-  valueShifted: 
-  command: 12
+  value: /
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &311267360
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,7 +4351,7 @@ RectTransform:
   m_Father: {fileID: 769440252}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.011832239, y: 0.030761095}
+  m_AnchorMin: {x: 0.011832239, y: 0.030761117}
   m_AnchorMax: {x: 0.79288995, y: 0.69083124}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -5652,14 +5591,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 349838246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: W
-  valueShifted: W
-  command: 12
+  value: W
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &351839666
 GameObject:
   m_ObjectHideFlags: 0
@@ -6509,14 +6445,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 379059696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: /
-  valueShifted: /
-  command: 5
+  value: /
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &387104367
 GameObject:
   m_ObjectHideFlags: 0
@@ -6825,14 +6758,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 388493792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 3
-  valueShifted: 3
-  command: 12
+  value: 3
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &403350780
 GameObject:
   m_ObjectHideFlags: 0
@@ -6976,14 +6906,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 403350780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 0
-  valueShifted: 0
-  command: 12
+  value: 0
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &430313878
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,14 +7570,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 480379935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 6
-  valueShifted: 6
-  command: 12
+  value: 6
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &483276494
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,14 +7717,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 483276494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: ' '
-  valueShifted: 
-  command: 12
+  value: Space
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &486269945
 GameObject:
   m_ObjectHideFlags: 0
@@ -8683,14 +8604,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 496934365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: Y
-  valueShifted: Y
-  command: 12
+  value: Y
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -9167,14 +9085,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 544468064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: X
-  valueShifted: X
-  command: 12
+  value: X
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &567010040
 GameObject:
   m_ObjectHideFlags: 0
@@ -9185,7 +9100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567010041}
   - component: {fileID: 567010042}
-  - component: {fileID: 567010044}
+  - component: {fileID: 567010043}
   m_Layer: 0
   m_Name: bShift
   m_TagString: Untagged
@@ -9260,7 +9175,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
---- !u!114 &567010044
+--- !u!114 &567010043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9269,9 +9184,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 567010040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48eda997d94b6db4f851b449105a719f, type: 3}
+  m_Script: {fileID: 11500000, guid: 85ddc6acea4c043449ec1aa50182c8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &568635872
 GameObject:
   m_ObjectHideFlags: 0
@@ -9415,14 +9331,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 568635872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: Q
-  valueShifted: Q
-  command: 12
+  value: Q
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &591926746
 GameObject:
   m_ObjectHideFlags: 0
@@ -9566,14 +9479,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 591926746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 7
-  valueShifted: 7
-  command: 12
+  value: 7
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &608086300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10041,7 +9951,6 @@ GameObject:
   - component: {fileID: 642848636}
   - component: {fileID: 642848635}
   - component: {fileID: 642848634}
-  - component: {fileID: 642848637}
   m_Layer: 0
   m_Name: bAMr
   m_TagString: Untagged
@@ -10148,23 +10057,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642848632}
   m_CullTransparentMesh: 0
---- !u!114 &642848637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642848632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyType: 0
-  shiftable: 0
-  valueUnshifted: 
-  valueShifted: 
-  command: 10
 --- !u!1 &644415495
 GameObject:
   m_ObjectHideFlags: 0
@@ -10734,14 +10626,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 684801731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: G
-  valueShifted: G
-  command: 12
+  value: G
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &693971090
 GameObject:
   m_ObjectHideFlags: 0
@@ -10885,14 +10774,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 693971090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 0
-  shiftable: 0
-  valueUnshifted: 
-  valueShifted: 
-  command: 3
+  value: Enter
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &700483534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11054,6 +10940,117 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700483534}
   m_CullTransparentMesh: 0
+--- !u!1 &706374900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 706374904}
+  - component: {fileID: 706374903}
+  - component: {fileID: 706374902}
+  - component: {fileID: 706374901}
+  - component: {fileID: 706374905}
+  - component: {fileID: 706374906}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &706374901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6844fe02f654ed843924f2a9b32a9d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpreterController: {fileID: 706374902}
+--- !u!114 &706374902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a8d53715b8b3b46b5a8e879acce1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineManagerController: {fileID: 706374903}
+--- !u!114 &706374903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1a2b81a6dd58646a44fa69bfcb6280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _consoleController: {fileID: 706374905}
+  _dsrService: {fileID: 706374906}
+--- !u!4 &706374904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 504.25256, y: 406.59738, z: -10.783271}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &706374905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16b985fa51710645b223bdaed8e5b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinePrefab: {fileID: 5912847827402958330, guid: 78f2e81f927783e4abd9de0bb686d3a7,
+    type: 3}
+  VerificationPanel: {fileID: 3203122256522235603, guid: 8ac93ed5d45d811408e58810c1df733f,
+    type: 3}
+  VerificationText: {fileID: 1806732326903630922, guid: 94736d409d481fd46b49041757a8899a,
+    type: 3}
+  CurrentMinimum: {x: 0, y: 1}
+  Valid: {r: 0.5804546, g: 1, b: 0.3160377, a: 1}
+  Invalid: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
+  HeightDelta: 0.036
+  CursorBlinkTime: 0.35
+  _displayCanvas: {fileID: 179830477}
+--- !u!114 &706374906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706374900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a360d17bf987255449fbc570dc32ad5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &713145315
 GameObject:
   m_ObjectHideFlags: 0
@@ -12288,14 +12285,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 743359615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7d5ce4d009c0c4388256ef294cb3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 1
-  valueUnshifted: '-'
-  valueShifted: =
-  command: 9
+  value: '-'
+  shiftedValue: =
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &769440251
 GameObject:
   m_ObjectHideFlags: 0
@@ -12310,7 +12305,6 @@ GameObject:
   - component: {fileID: 769440253}
   - component: {fileID: 769440257}
   - component: {fileID: 769440256}
-  - component: {fileID: 769440258}
   m_Layer: 0
   m_Name: Keyboard
   m_TagString: KeyboardController
@@ -12338,7 +12332,7 @@ RectTransform:
   m_Father: {fileID: 2000550292}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: -0.000000044681666, y: -0.000048680755}
+  m_AnchorMin: {x: -0.00000008936333, y: -0.000048719205}
   m_AnchorMax: {x: 1.0000001, y: 0.6807735}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -12440,19 +12434,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769440251}
   m_CullTransparentMesh: 0
---- !u!114 &769440258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769440251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4094833630ba74441a324a6fc9852196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShiftEnabled: 0
 --- !u!1001 &779403601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13416,14 +13397,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 821194449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: B
-  valueShifted: B
-  command: 12
+  value: B
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &827777993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13728,14 +13706,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 846343796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: C
-  valueShifted: C
-  command: 12
+  value: C
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &874131330
 GameObject:
   m_ObjectHideFlags: 0
@@ -14039,14 +14014,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 886303222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: ','
-  valueShifted: 
-  command: 12
+  value: ','
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &910099924
 GameObject:
   m_ObjectHideFlags: 0
@@ -14645,14 +14617,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 971997104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: E
-  valueShifted: E
-  command: 12
+  value: E
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &984360499
 GameObject:
   m_ObjectHideFlags: 0
@@ -15227,14 +15196,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019606071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: H
-  valueShifted: H
-  command: 12
+  value: H
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1027687806
 GameObject:
   m_ObjectHideFlags: 0
@@ -15378,14 +15344,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1027687806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: U
-  valueShifted: U
-  command: 12
+  value: U
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1030242598
 GameObject:
   m_ObjectHideFlags: 0
@@ -15529,14 +15492,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030242598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 4
-  valueShifted: 4
-  command: 12
+  value: 4
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1034819294
 GameObject:
   m_ObjectHideFlags: 0
@@ -15798,14 +15758,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1048087150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: S
-  valueShifted: S
-  command: 12
+  value: S
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1058692900
 GameObject:
   m_ObjectHideFlags: 0
@@ -16655,14 +16612,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091683567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: R
-  valueShifted: R
-  command: 12
+  value: R
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1098371008
 GameObject:
   m_ObjectHideFlags: 0
@@ -17379,14 +17333,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1118555574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: V
-  valueShifted: V
-  command: 12
+  value: V
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1121885688
 GameObject:
   m_ObjectHideFlags: 0
@@ -19228,6 +19179,7 @@ GameObject:
   - component: {fileID: 1257296648}
   - component: {fileID: 1257296647}
   - component: {fileID: 1257296650}
+  - component: {fileID: 1257296651}
   m_Layer: 0
   m_Name: bDOWN
   m_TagString: Untagged
@@ -19348,6 +19300,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonText: 
   fontSize: 60
+--- !u!114 &1257296651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257296645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: Down
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1262702882
 GameObject:
   m_ObjectHideFlags: 0
@@ -19491,14 +19457,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1262702882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 2
-  valueShifted: 2
-  command: 12
+  value: 2
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1277482423
 GameObject:
   m_ObjectHideFlags: 0
@@ -21446,14 +21409,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1379023108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: K
-  valueShifted: K
-  command: 12
+  value: K
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1385368801
 GameObject:
   m_ObjectHideFlags: 0
@@ -21627,7 +21587,6 @@ GameObject:
   - component: {fileID: 1387028713}
   - component: {fileID: 1387028712}
   - component: {fileID: 1387028711}
-  - component: {fileID: 1387028715}
   m_Layer: 0
   m_Name: bSPACE2
   m_TagString: Untagged
@@ -21748,23 +21707,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387028709}
   m_CullTransparentMesh: 0
---- !u!114 &1387028715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387028709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: ' '
-  valueShifted: 
-  command: 12
 --- !u!1 &1392332872
 GameObject:
   m_ObjectHideFlags: 0
@@ -22363,14 +22305,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1414927351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 8
-  valueShifted: 8
-  command: 12
+  value: 8
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1416323881
 GameObject:
   m_ObjectHideFlags: 0
@@ -22879,14 +22818,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437264398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: .
-  valueShifted: 
-  command: 12
+  value: .
+  _keyboardController: {fileID: 706374901}
 --- !u!114 &1437264401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23944,14 +23880,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488896670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: aaa39bbce6001d443bebfd25733d87ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 0
-  shiftable: 0
-  valueUnshifted: 
-  valueShifted: 
-  command: 0
+  _keyboardController: {fileID: 706374901}
 --- !u!114 &1488896673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24874,10 +24806,10 @@ RectTransform:
   m_Father: {fileID: 311267361}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3290696, y: 0.40229136}
-  m_AnchorMax: {x: 0.39152712, y: 0.60153013}
+  m_AnchorMin: {x: 0.3290696, y: 0.40229014}
+  m_AnchorMax: {x: 0.39152718, y: 0.60153013}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.0024414062, y: -0.0024414062}
+  m_SizeDelta: {x: -0.0025634766, y: -0.003540039}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1525021301
 MonoBehaviour:
@@ -24981,14 +24913,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1525021299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: F
-  valueShifted: F
-  command: 12
+  value: F
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1539051655
 GameObject:
   m_ObjectHideFlags: 0
@@ -25163,6 +25092,7 @@ GameObject:
   - component: {fileID: 1541897383}
   - component: {fileID: 1541897382}
   - component: {fileID: 1541897381}
+  - component: {fileID: 1541897385}
   m_Layer: 0
   m_Name: bUP
   m_TagString: Untagged
@@ -25185,10 +25115,10 @@ RectTransform:
   m_Father: {fileID: 311267361}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.78700006, y: 0.800409}
-  m_AnchorMax: {x: 0.84949887, y: 1.0000001}
+  m_AnchorMin: {x: 0.7870001, y: 0.8004099}
+  m_AnchorMax: {x: 0.8494988, y: 1.0000001}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.0017089844, y: 0.0017700195}
+  m_SizeDelta: {x: 0.0018310547, y: 0.0025634766}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1541897381
 MonoBehaviour:
@@ -25283,6 +25213,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541897379}
   m_CullTransparentMesh: 0
+--- !u!114 &1541897385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541897379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: Up
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1547306579
 GameObject:
   m_ObjectHideFlags: 0
@@ -25296,7 +25240,6 @@ GameObject:
   - component: {fileID: 1547306583}
   - component: {fileID: 1547306582}
   - component: {fileID: 1547306581}
-  - component: {fileID: 1547306585}
   m_Layer: 0
   m_Name: bSPACE1
   m_TagString: Untagged
@@ -25417,23 +25360,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547306579}
   m_CullTransparentMesh: 0
---- !u!114 &1547306585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547306579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: ' '
-  valueShifted: 
-  command: 7
 --- !u!1 &1556486536
 GameObject:
   m_ObjectHideFlags: 0
@@ -26598,14 +26524,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627176087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 1
-  valueShifted: 
-  command: 12
+  value: 1
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1634904025
 GameObject:
   m_ObjectHideFlags: 0
@@ -26749,14 +26672,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1634904025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 0
-  shiftable: 0
-  valueUnshifted: 
-  valueShifted: 
-  command: 1
+  value: Clear
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1638911080
 GameObject:
   m_ObjectHideFlags: 0
@@ -28265,14 +28185,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1710480584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 9
-  valueShifted: 9
-  command: 12
+  value: 9
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1720974211
 GameObject:
   m_ObjectHideFlags: 0
@@ -29897,14 +29814,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790911523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: P
-  valueShifted: P
-  command: 12
+  value: P
+  _keyboardController: {fileID: 706374901}
 --- !u!1001 &1798837899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30838,14 +30752,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1840689778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: N
-  valueShifted: N
-  command: 12
+  value: N
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1844521170
 GameObject:
   m_ObjectHideFlags: 0
@@ -31122,14 +31033,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855029905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: Z
-  valueShifted: Z
-  command: 12
+  value: Z
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1891640159
 GameObject:
   m_ObjectHideFlags: 0
@@ -31713,14 +31621,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1932252820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: T
-  valueShifted: T
-  command: 12
+  value: T
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &1946413692
 GameObject:
   m_ObjectHideFlags: 0
@@ -33351,6 +33256,7 @@ GameObject:
   - component: {fileID: 2011595233}
   - component: {fileID: 2011595232}
   - component: {fileID: 2011595235}
+  - component: {fileID: 2011595236}
   m_Layer: 0
   m_Name: bRIGHT
   m_TagString: Untagged
@@ -33471,6 +33377,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonText: 
   fontSize: 60
+--- !u!114 &2011595236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011595230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: Right
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &2018522695
 GameObject:
   m_ObjectHideFlags: 0
@@ -33483,7 +33403,6 @@ GameObject:
   - component: {fileID: 2018522699}
   - component: {fileID: 2018522698}
   - component: {fileID: 2018522697}
-  - component: {fileID: 2018522700}
   m_Layer: 0
   m_Name: bRTEr
   m_TagString: Untagged
@@ -33590,23 +33509,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018522695}
   m_CullTransparentMesh: 0
---- !u!114 &2018522700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018522695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyType: 0
-  shiftable: 0
-  valueUnshifted: 
-  valueShifted: 
-  command: 11
 --- !u!1 &2022866309
 GameObject:
   m_ObjectHideFlags: 0
@@ -33911,14 +33813,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028938746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: D
-  valueShifted: D
-  command: 12
+  value: D
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &2041649500
 GameObject:
   m_ObjectHideFlags: 0
@@ -34062,14 +33961,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2041649500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 0
-  shiftable: 0
-  valueUnshifted: 
-  valueShifted: 
-  command: 2
+  value: Tab
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &2047877840
 GameObject:
   m_ObjectHideFlags: 0
@@ -34083,6 +33979,7 @@ GameObject:
   - component: {fileID: 2047877843}
   - component: {fileID: 2047877842}
   - component: {fileID: 2047877845}
+  - component: {fileID: 2047877846}
   m_Layer: 0
   m_Name: bLEFT
   m_TagString: Untagged
@@ -34203,6 +34100,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonText: 
   fontSize: 60
+--- !u!114 &2047877846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047877840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: Left
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &2058937415
 GameObject:
   m_ObjectHideFlags: 0
@@ -34507,14 +34418,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2080308482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: 5
-  valueShifted: 5
-  command: 12
+  value: 5
+  _keyboardController: {fileID: 706374901}
 --- !u!1 &2087685091
 GameObject:
   m_ObjectHideFlags: 0
@@ -34819,14 +34727,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2094911671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a237926777d208a44b46384b043363ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b91bac846f4a3634c96dbba58ce5b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
-  shiftable: 0
-  valueUnshifted: A
-  valueShifted: A
-  command: 12
+  value: A
+  _keyboardController: {fileID: 706374901}
 --- !u!1001 &2097622348
 PrefabInstance:
   m_ObjectHideFlags: 0
