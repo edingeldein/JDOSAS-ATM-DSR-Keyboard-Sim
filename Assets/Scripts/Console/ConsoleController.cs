@@ -26,10 +26,9 @@ namespace DSR.Console
 
         private void Start()
         {
-            _cursor = CreateCursor();
-            _currentLine = CreateNewLine();
             _displayedLines = new List<GameObject>();
-            _displayedLines.Add(_currentLine);
+            _cursor = CreateCursor();
+            ResetConsole();
 
             StartCoroutine(CursorTimer(CursorBlinkTime, _cursor));
         }
@@ -41,7 +40,11 @@ namespace DSR.Console
 
         public void ClearLines()
         {
-            throw new NotImplementedException();
+            foreach(var line in _displayedLines)
+                Destroy(line);
+            _displayedLines.RemoveRange(0, _displayedLines.Count);
+
+            ResetConsole();
         }
 
         public void NewLine(string line, string cursor)
@@ -82,6 +85,8 @@ namespace DSR.Console
                 ttRectTransform.anchorMax = new Vector2(horizPos + width, 1f);
                 horizPos += width;
             }
+
+            _displayedLines.Add(vfPanel);
         }
 
         private GameObject CreateCursor()
@@ -116,7 +121,22 @@ namespace DSR.Console
             rt.anchorMax = new Vector2(1f, CurrentMinimum.y);
             CurrentMinimum = rt.anchorMin;
 
+            _displayedLines.Add(go);
+
             return go;
+        }
+
+        private void ResetConsole()
+        {
+            CurrentMinimum = new Vector2(0f, 1f);
+            ResetCursor(_cursor);
+            _currentLine = CreateNewLine();
+            _displayedLines.Add(_currentLine);
+        }
+
+        private void ResetCursor(GameObject cursor)
+        {
+            cursor.GetComponent<Text>().text = "  _";
         }
 
         private IEnumerator CursorTimer(float waitTime, GameObject cursor)

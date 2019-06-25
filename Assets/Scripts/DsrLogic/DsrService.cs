@@ -30,6 +30,13 @@ namespace DSR.DsrLogic
             return service.ValidateAction(line.Text);
         }
 
+        public string GetCommand(Line line)
+        {
+            var lineText = line.Text;
+            var command = lineText.Split(' ')[0];
+            return command;
+        }
+
         private string GetFileContents(string filename)
         {
             var textAsset = (TextAsset)Resources.Load(filename, typeof(TextAsset));
