@@ -8,6 +8,8 @@ namespace DSR.Keyboard.Interfaces
 {
     public interface IKeyboardController
     {
+        bool Queued { get; }
+        string Dequeue { get; }
         void SetShift(bool shift);
         bool GetShift();
         void QueueKeypress(string keypress);

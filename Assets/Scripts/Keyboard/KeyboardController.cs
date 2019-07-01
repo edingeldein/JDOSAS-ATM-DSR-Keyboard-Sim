@@ -7,8 +7,10 @@ using DSR.Interpreter.Interfaces;
 
 namespace DSR.Keyboard
 {
-    public class KeyboardController : MonoBehaviour, IKeyboardController
-    {
+    public class OldKeyboardController : MonoBehaviour, IKeyboardController
+    {        
+        public bool Queued { get { return _keyQueue.Count > 0; } }
+        public string Dequeue { get { return _keyQueue.Dequeue(); } }
         private Queue<string> _keyQueue;
         private bool _shifted;
 
@@ -20,14 +22,14 @@ namespace DSR.Keyboard
             _shifted = false;
         }
 
-        void Update()
-        {
-            while(_keyQueue.Count > 0)
-            {
-                var keyVal = _keyQueue.Dequeue();
-                _interpreterController.Interpret(keyVal);
-            }
-        }
+        // void Update()
+        // {
+        //     while(_keyQueue.Count > 0)
+        //     {
+        //         var keyVal = _keyQueue.Dequeue();
+        //         _interpreterController.Interpret(keyVal);
+        //     }
+        // }
 
         public void QueueKeypress(string keypress)
         {

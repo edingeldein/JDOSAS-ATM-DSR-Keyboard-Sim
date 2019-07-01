@@ -46,6 +46,8 @@ namespace DSR.Objects
         public void StartAction(ActionType action)
         {
             CurrentActionType = action;
+            Text = action.ToString() + " ";
+            UpdateCursor();
         }
 
         private void UpdateCursor()

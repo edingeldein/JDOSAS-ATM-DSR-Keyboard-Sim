@@ -128,6 +128,9 @@ namespace DSR.Console
 
         private void ResetConsole()
         {
+            foreach (var line in _displayedLines)
+                Destroy(line);
+
             CurrentMinimum = new Vector2(0f, 1f);
             ResetCursor(_cursor);
             _currentLine = CreateNewLine();

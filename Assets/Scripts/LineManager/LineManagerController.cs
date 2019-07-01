@@ -42,6 +42,22 @@ namespace DSR.LineManager
             KeyValueInput(keyData);
         }
 
+        public Line CommandInput(KeyData keyData)
+        {
+            
+            return _currentLine;
+        }
+
+        public void ActionInput(KeyData actionData)
+        {
+
+        }
+
+        public void ValueInput(KeyData keyData)
+        {
+
+        }
+
         private void KeyValueInput(KeyData keyValue)
         {
             if (string.IsNullOrEmpty(keyValue.Value)) return;
@@ -62,7 +78,8 @@ namespace DSR.LineManager
                     _currentLine.ClearLine();
                     break;
                 case CommandType.Enter:
-                    if (Mode == Mode.Learn) ValidateLine();
+                    //if (Mode == Mode.Learn) ValidateLine();
+                    if(true) ValidateLine();
                     else ProcessLine();
                     break;
                 case CommandType.Up:

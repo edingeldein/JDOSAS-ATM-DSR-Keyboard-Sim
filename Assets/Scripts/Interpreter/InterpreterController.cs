@@ -8,6 +8,7 @@ namespace DSR.Interpreter
 {
     public class InterpreterController : MonoBehaviour, IInterpreterController
     {
+        public KeyData Interpret(string key) => _translator.Translate(key);
         private Translator _translator;
         private Queue<KeyData> _keyQueue;
 
@@ -27,12 +28,6 @@ namespace DSR.Interpreter
                 var keyData = _keyQueue.Dequeue();
                 _lineManagerController.KeyInput(keyData);
             }
-        }
-
-        public void Interpret(string key)
-        {
-            var keyData = _translator.Translate(key);
-            _keyQueue.Enqueue(keyData);
         }
     }
 }
